@@ -1,40 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Front Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="main.css">
- 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Floating Bottom Nav</title>
+  <link rel="stylesheet" href="main.css" />
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-  <div class="sidebar">
-    <img src="images/background.jpeg" alt="Profile Picture">
-    <h2>Umang Thakur</h2>
-    <div class="social-icons">
-      <a href="#"><i class='bx bxl-linkedin'></i></a>
-      <a href="#"><i class='bx bxl-instagram' ></i></a>
-      <a href="#"><i class='bx bxl-github' ></i></a>
-      <a href="#"><i class='bx bxl-gmail' ></i></a>
-    </div>
-    <div class="menu">
-      <a href="#"><i class='bx bxs-home' ></i>Home</a>
-      <a href="#"><i class='bx bxs-user'></i>About Me</a>
-      <a href="#"><i class='bx bxs-briefcase-alt-2' ></i>Portfolio</a>
-      <a href="#"><i class='bx bxs-contact' ></i>Contact</a>
+<!-- NAVIGATION WRAPPER -->
+<div class="navbar-container">
+
+  <!-- Top Navbar (Tablet & Laptop) -->
+  <div class="top-navbar">
+    <div class="nav-content">
+      <div class="logo">Khushi.</div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Education</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="desktopThemeToggle">🌙</button>
     </div>
   </div>
 
-  <div class="content">
-    <div class="intro">
-      <h1>Hi, This is Umang Thakur.</h1>
-      <p>I'm a Devloper</p>
+  <!-- Mobile Topbar -->
+  <div class="mobile-topbar">
+    <div class="logo">Khushi.</div>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+  </div>
+
+  <!-- Bottom Navigation (Mobile Only) -->
+  <div class="bottom-navigation">
+    <div class="list active">
+      <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
+      <div class="text">Home</div>
+    </div>
+    <div class="list">
+      <div class="icon"><ion-icon name="person-outline"></ion-icon></div>
+      <div class="text">About</div>
+    </div>
+    <div class="list">
+      <div class="icon"><ion-icon name="settings-outline"></ion-icon></div>
+      <div class="text">Services</div>
+    </div>
+    <div class="list">
+      <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
+      <div class="text">Contact</div>
+    </div>
+
+    <div class="indicator">
+      <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
     </div>
   </div>
 
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</div>
+
+<!-- MAIN PAGE CONTENT GOES BELOW -->
+<main class="main-content">
+  <!-- Example content section -->
+  <section class="hero">
+    <h1>Welcome to My Portfolio</h1>
+    <p>This is the homepage content.</p>
+  </section>
+</main>
+
+<!-- Ionicons CDN -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<!-- Navigation JS -->
+<script src="main.js"></script>
+
+
 </body>
 </html>
