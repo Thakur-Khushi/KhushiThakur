@@ -1,3 +1,4 @@
+/* ====== GLOBAL RESET ====== */
 * {
   margin: 0;
   padding: 0;
@@ -6,17 +7,23 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: #0f0f1b;
+  background: linear-gradient(135deg, #0f2027, #2c5364);
   min-height: 100vh;
   color: white;
+  transition: background 0.6s ease, color 0.6s ease;
 }
 
 /* ====== TOP NAVBAR (Tablet & Laptop) ====== */
 .top-navbar {
   width: 100%;
-  background-color: #0f0f1b;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
   color: white;
   padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: background 0.6s ease;
 }
 
 .nav-content {
@@ -50,7 +57,7 @@ body {
 
 .nav-content ul li a:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #00ff6a;
+  color: #00e6b8;
 }
 
 /* ====== THEME TOGGLE BUTTON ====== */
@@ -64,7 +71,7 @@ body {
 }
 
 .theme-toggle:hover {
-  color: #00ff6a;
+  color: #00e6b8;
 }
 
 body.light-theme .theme-toggle {
@@ -75,12 +82,13 @@ body.light-theme .theme-toggle {
 .mobile-topbar {
   display: none;
   padding: 15px 20px;
-  background-color: #0f0f1b;
+  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
   color: white;
   font-size: 1.2rem;
   font-weight: bold;
   justify-content: space-between;
   align-items: center;
+  transition: background 0.6s ease;
 }
 
 .mobile-topbar .theme-toggle {
@@ -94,7 +102,11 @@ body.light-theme .theme-toggle {
   left: 0;
   width: 100%;
   height: 70px;
-  background: rgba(255, 255, 255, 0.05);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 32, 39, 0.95),
+    rgba(44, 83, 100, 0.95)
+  );
   backdrop-filter: blur(10px);
   border-radius: 20px 20px 0 0;
   display: none;
@@ -102,6 +114,7 @@ body.light-theme .theme-toggle {
   align-items: center;
   z-index: 999;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.6s ease;
 }
 
 .bottom-navigation .list {
@@ -136,7 +149,7 @@ body.light-theme .theme-toggle {
 }
 
 .bottom-navigation .list.active .icon {
-  opacity: 0; /* hide original icon when it's in the circle */
+  opacity: 0;
 }
 
 .bottom-navigation .indicator {
@@ -144,13 +157,13 @@ body.light-theme .theme-toggle {
   top: -28px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(to right, #ff416c, #6e8efb);
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
   border-radius: 50%;
-  border: 6px solid #0f0f1b;
+  border: 6px solid #0f2027;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: left 0.3s ease;
+  transition: left 0.3s ease, background 0.6s ease, border-color 0.6s ease;
   left: 0;
   z-index: 1;
 }
@@ -174,17 +187,28 @@ body.light-theme .theme-toggle {
   .bottom-navigation {
     display: flex;
   }
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 0px;
+  }
+
+  .hero-image {
+    margin-top: 20px;
+  }
 }
 
 /* ====== LIGHT THEME SUPPORT ====== */
 body.light-theme {
-  background: #f4f4f4;
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
   color: #111;
 }
 
 body.light-theme .top-navbar,
 body.light-theme .mobile-topbar {
-  background-color: white;
+  background: linear-gradient(90deg, #e0eafc, #cfdef3);
   color: #111;
 }
 
@@ -193,9 +217,29 @@ body.light-theme .mobile-topbar .theme-toggle {
   color: #111;
 }
 
+body.light-theme .nav-content ul li a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #3a6073;
+}
+
+body.light-theme .hero-section {
+  background: linear-gradient(135deg, #dfe9f3, #ffffff);
+}
+
+body.light-theme .social-icons a {
+  color: #111;
+}
+
+body.light-theme .social-icons a:hover {
+  color: #3a6073;
+}
+
 body.light-theme .bottom-navigation {
-  background: rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(
+    90deg,
+    rgba(224, 234, 252, 0.95),
+    rgba(207, 222, 243, 0.95)
+  );
 }
 
 body.light-theme .bottom-navigation .list .text,
@@ -204,13 +248,18 @@ body.light-theme .bottom-navigation .list.active .icon {
   color: black;
 }
 
-body.light-theme .indicator {
-  border-color: #f4f4f4;
+body.light-theme .bottom-navigation .indicator {
+  background: linear-gradient(to right, #3a6073, #6e8efb);
+  border: 6px solid #f9f9f9;
+}
+
+body.light-theme .theme-toggle:hover {
+  color: #3a6073;
 }
 
 /* ====== MAIN CONTENT ====== */
 .main-content {
-  padding: 80px 20px 100px; /* top, sides, bottom */
+  padding: 80px 20px 100px;
 }
 
 /* ====== HERO SECTION ====== */
@@ -219,9 +268,8 @@ body.light-theme .indicator {
   justify-content: space-between;
   align-items: center;
   padding: 100px 40px;
-  background: #0f0f1b;
+  background: linear-gradient(135deg, #16222a, #3a6073);
   flex-wrap: wrap;
-  margin-top: 90px;
 }
 
 .hero-content {
@@ -235,7 +283,7 @@ body.light-theme .indicator {
 }
 
 .hero-content h1 span {
-  background: linear-gradient(to right, #ff416c, #6e8efb);
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -250,7 +298,7 @@ body.light-theme .indicator {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 25px;
-  color: #ccc;
+  color: #cfd8dc;
 }
 
 .social-icons a {
@@ -261,7 +309,7 @@ body.light-theme .indicator {
 }
 
 .social-icons a:hover {
-  color: #00ff6a;
+  color: #00e6b8;
 }
 
 .cta-button {
@@ -269,7 +317,7 @@ body.light-theme .indicator {
   font-size: 1rem;
   border: none;
   border-radius: 6px;
-  background: linear-gradient(to right, #ff416c, #6e8efb);
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
   color: white;
   cursor: pointer;
   transition: 0.3s ease;
@@ -285,126 +333,7 @@ body.light-theme .indicator {
   border-radius: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-image {
-    margin-top: 3px;
-  }
-  .hero-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 20px;
-    background: #0f0f1b;
-    flex-wrap: wrap;
-    margin-top: 0px;
-  }
-}
-
-body.light-theme {
-  background: linear-gradient(135deg, #fce3ec, #f9f9f9);
-  color: #111;
-}
-
-/* Top Navbar Light */
-body.light-theme .top-navbar,
-body.light-theme .mobile-topbar {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
-  color: #111;
-}
-
-/* Navbar Links Light Mode */
-body.light-theme .nav-content ul li a {
-  color: #111;
-}
-
-body.light-theme .nav-content ul li a:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #ff416c;
-}
-
-/* Hero Section Light Gradient */
-body.light-theme .hero-section {
-  background: linear-gradient(135deg, #fce3ec, #f9f9f9);
-}
-
-/* Social Icons Light Mode */
-body.light-theme .social-icons a {
-  color: #111;
-}
-
-body.light-theme .social-icons a:hover {
-  color: #ff416c;
-}
-
-/* Bottom Navigation Light */
-body.light-theme .bottom-navigation {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-body.light-theme .bottom-navigation .list .icon,
-body.light-theme .bottom-navigation .list .text {
-  color: #111;
-}
-
-body.light-theme .bottom-navigation .indicator {
-  background: linear-gradient(to right, #ff416c, #6e8efb);
-  border: 6px solid #f9f9f9;
-}
-
-/* Theme Toggle Button Hover Light */
-body.light-theme .theme-toggle:hover {
-  color: #ff416c;
-}
-
-/* Hero Content Paragraph Light */
-body.light-theme .hero-content p {
-  color: #333;
-}
-
-.content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main-content {
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.top-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hero-section {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+/* ====== SECTIONS ====== */
 .about-section,
 .skills-section,
 .education-section {
