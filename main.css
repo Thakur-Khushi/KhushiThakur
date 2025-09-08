@@ -256,6 +256,20 @@ body.light-theme .bottom-navigation .indicator {
 body.light-theme .theme-toggle:hover {
   color: #3a6073;
 }
+/* ====== FIX HERO CONTENT COLOR IN LIGHT THEME ====== */
+body.light-theme .hero-content {
+  color: #111; /* black/dark text */
+}
+
+body.light-theme .hero-content p {
+  color: #333; /* softer dark gray for paragraphs */
+}
+
+body.light-theme .hero-content h1 span {
+  background: linear-gradient(to right, #3a6073, #6e8efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* ====== MAIN CONTENT ====== */
 .main-content {
