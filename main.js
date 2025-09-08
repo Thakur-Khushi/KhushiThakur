@@ -1,16 +1,15 @@
-// Indicator functionality
-const list = document.querySelectorAll('.bottom-navigation .list');
+// ===== INDICATOR FUNCTIONALITY =====
+const navItems = document.querySelectorAll('.bottom-navigation .list');
 const indicator = document.querySelector('.bottom-navigation .indicator');
 const indicatorIcon = indicator.querySelector('ion-icon');
 
 function updateIndicator(activeItem) {
-  list.forEach(item => {
+  navItems.forEach(item => {
     item.classList.remove('active');
     item.querySelector('.icon').style.opacity = '1';
   });
 
   activeItem.classList.add('active');
-
   const icon = activeItem.querySelector('.icon');
   icon.style.opacity = '0';
 
@@ -21,25 +20,37 @@ function updateIndicator(activeItem) {
   indicatorIcon.setAttribute('name', activeIconName);
 }
 
-// Initial state
+// Initial State on Load
 updateIndicator(document.querySelector('.bottom-navigation .list.active'));
 
-// Click events for nav icons
-list.forEach(item => {
+// Navigation Item Click Events
+navItems.forEach(item => {
   item.addEventListener('click', () => updateIndicator(item));
 });
 
-// Theme toggle (mobile + desktop)
+// ===== THEME TOGGLE FUNCTIONALITY =====
 const themeToggles = document.querySelectorAll('.theme-toggle');
-let isDark = true;
+let isDarkTheme = true;
 
 themeToggles.forEach(toggle => {
   toggle.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
-    isDark = !isDark;
+    isDarkTheme = !isDarkTheme;
 
+    // Change icon text 🌙 or ☀️
     themeToggles.forEach(btn => {
-      btn.textContent = isDark ? '🌙' : '☀️';
+      btn.textContent = isDarkTheme ? '🌙' : '☀️';
     });
   });
+});
+
+// ===== HERO SECTION FADE-IN ANIMATION =====
+document.addEventListener("DOMContentLoaded", () => {
+  const heroContent = document.querySelector('.hero-content');
+  heroContent.style.opacity = 0;
+
+  setTimeout(() => {
+    heroContent.style.transition = 'opacity 2s ease';
+    heroContent.style.opacity = 1;
+  }, 500);
 });
