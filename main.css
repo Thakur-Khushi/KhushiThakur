@@ -192,7 +192,7 @@ body.light-theme .theme-toggle {
     flex-direction: column;
     text-align: center;
     padding: 40px 20px;
-    margin-top: 0px;
+    margin-top: -20px;
   }
 
   .hero-image {
@@ -354,4 +354,170 @@ body.light-theme .hero-content h1 span {
   width: 100%;
   margin-top: 100px;
   text-align: center;
+}
+/* ====== SKILLS SECTION ====== */
+.skills-section {
+  padding: 60px 20px;
+}
+
+.skills-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.skill-box {
+  background: linear-gradient(135deg, #1a2a3a, #0f2027);
+  border-radius: 16px;
+  padding: 25px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.skill-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+.skill-box ion-icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  color: #00e6b8;
+}
+
+.skill-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.skill-box p {
+  font-size: 0.9rem;
+  color: #cfd8dc;
+}
+
+/* Light Theme Support for Skills */
+body.light-theme .skill-box {
+  background: linear-gradient(135deg, #ffffff, #e0eafc);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .skill-box h3 {
+  color: #111;
+}
+
+body.light-theme .skill-box p {
+  color: #333;
+}
+
+/* ====== TIMELINE ====== */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 30px; /* vertical line position */
+  width: 4px;
+  height: 100%;
+  background: #00e6b8;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 50px;
+  padding-left: 80px; /* space for date + dot */
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 18px; /* dot position */
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  border-radius: 50%;
+  border: 3px solid #0f2027;
+}
+
+.timeline-item .date {
+  position: absolute;
+  left: 60px;
+  top: 0;
+  font-weight: bold;
+  color: #00e6b8;
+  font-size: 0.9rem;
+}
+
+.timeline-item .content {
+  background: linear-gradient(135deg, #1a2a3a, #0f2027);
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+
+/* LIGHT THEME */
+body.light-theme .timeline::before {
+  background: #3a6073;
+}
+
+body.light-theme .timeline-item .content {
+  background: linear-gradient(135deg, #ffffff, #e0eafc);
+  color: #111;
+}
+
+body.light-theme .timeline-item .date {
+  color: #3a6073;
+}
+
+/* ====== MOBILE TIMELINE ====== */
+@media screen and (max-width: 768px) {
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    padding-left: 0;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .timeline-item::before {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item .date {
+    position: relative;
+    left: auto;
+    top: 30px;
+    margin-bottom: 10px;
+  }
+
+  .timeline-item .content {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+  }
 }

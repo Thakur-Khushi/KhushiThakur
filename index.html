@@ -1,109 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio</title>
   <link rel="stylesheet" href="main.css" />
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
+
 <body>
-<!-- NAVIGATION WRAPPER -->
-<div class="navbar-container">
+  <!-- NAVIGATION WRAPPER -->
+  <div class="navbar-container">
 
-  <!-- Top Navbar (Tablet & Laptop) -->
-  <div class="top-navbar">
-    <div class="nav-content">
+    <!-- Top Navbar (Tablet & Laptop) -->
+    <div class="top-navbar">
+      <div class="nav-content">
+        <div class="logo">umang.</div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Education</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="theme-toggle" id="desktopThemeToggle">🌙</button>
+      </div>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="mobile-topbar">
       <div class="logo">umang.</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Education</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <button class="theme-toggle" id="desktopThemeToggle">🌙</button>
-    </div>
-  </div>
-
-  <!-- Mobile Topbar -->
-  <div class="mobile-topbar">
-    <div class="logo">umang.</div>
-    <button class="theme-toggle" id="themeToggle">🌙</button>
-  </div>
-
-  <!-- Bottom Navigation (Mobile Only) -->
-  <div class="bottom-navigation">
-    <div class="list active">
-      <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
-      <div class="text">Home</div>
-    </div>
-    <div class="list">
-      <div class="icon"><ion-icon name="person-outline"></ion-icon></div>
-      <div class="text">About</div>
-    </div>
-    <div class="list">
-      <div class="icon"><ion-icon name="settings-outline"></ion-icon></div>
-      <div class="text">Skills</div>
-    </div>
-    <div class="list">
-      <div class="icon"><ion-icon name="call-outline"></ion-icon></div>
-      <div class="text">Contact</div>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
     </div>
 
-    <div class="indicator">
-      <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
-    </div>
-  </div>
-
-</div>
-
-<!-- MAIN PAGE CONTENT -->
-<main class="main-content">
-  <div class="content-wrapper">
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1>Hi, I'm <span>Umang Tahkur</span></h1>
-        <h2>Web Developer</h2>
-        <p>I'm a professional Web Developer. Our main goal is to help & satisfy the Local & Global Clients by web development solutions.</p>
-        <div class="social-icons">
-          <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-          <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+    <!-- Bottom Navigation (Mobile Only) -->
+    <div class="bottom-navigation">
+      <div class="list active">
+        <div class="icon">
+          <ion-icon name="home-outline"></ion-icon>
         </div>
-        <button class="cta-button">Download CV</button>
+        <div class="text">Home</div>
       </div>
-      <div class="hero-image">
-        <img src="b6e92c04-a558-4fe9-b809-4de3ec37b18a.png" alt="Hero Image">
+      <div class="list">
+        <div class="icon">
+          <ion-icon name="person-outline"></ion-icon>
+        </div>
+        <div class="text">About</div>
       </div>
-    </section>
+      <div class="list">
+        <div class="icon">
+          <ion-icon name="settings-outline"></ion-icon>
+        </div>
+        <div class="text">Skills</div>
+      </div>
+      <div class="list">
+        <div class="icon">
+          <ion-icon name="call-outline"></ion-icon>
+        </div>
+        <div class="text">Contact</div>
+      </div>
 
-    <!-- About Section (Dummy) -->
-    <section class="about-section">
-      <h2>About Me</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.</p>
-    </section>
-
-    <!-- Skills Section (Dummy) -->
-    <section class="skills-section">
-      <h2>Skills</h2>
-      <p>HTML, CSS, JavaScript, React, Python</p>
-    </section>
-
-    <!-- Education Section (Dummy) -->
-    <section class="education-section">
-      <h2>Education</h2>
-      <p>Bachelor of Technology in Computer Science</p>
-    </section>
+      <div class="indicator">
+        <div class="icon">
+          <ion-icon name="home-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
 
   </div>
-</main>
 
-<!-- Navigation JS -->
-<script src="main.js"></script>
+  <!-- MAIN PAGE CONTENT -->
+  <main class="main-content">
+    <div class="content-wrapper">
+
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-content">
+          <h1>Hi, I'm <span>Umang Tahkur</span></h1>
+          <h2>Web Developer</h2>
+          <p>I'm a professional Web Developer. Our main goal is to help & satisfy the Local & Global Clients by web
+            development solutions.</p>
+          <div class="social-icons">
+            <a href="#">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+            <a href="#">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            <a href="#">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </div>
+          <button class="cta-button">Download CV</button>
+        </div>
+        <div class="hero-image">
+          <img src="b6e92c04-a558-4fe9-b809-4de3ec37b18a.png" alt="Hero Image">
+        </div>
+      </section>
+
+      <!-- About Section (Dummy) -->
+      <section class="about-section">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
+        </p>
+      </section>
+
+      <!-- Skills Section (Dummy) -->
+      <!-- Skills Section -->
+      <section class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-box">
+            <ion-icon name="logo-html5"></ion-icon>
+            <h3>HTML5</h3>
+            <p>Semantic structure and accessibility-first design.</p>
+          </div>
+          <div class="skill-box">
+            <ion-icon name="logo-css3"></ion-icon>
+            <h3>CSS3</h3>
+            <p>Modern layouts with Flexbox, Grid, and animations.</p>
+          </div>
+          <div class="skill-box">
+            <ion-icon name="logo-javascript"></ion-icon>
+            <h3>JavaScript</h3>
+            <p>Interactive and dynamic web applications.</p>
+          </div>
+          <div class="skill-box">
+            <ion-icon name="logo-react"></ion-icon>
+            <h3>React</h3>
+            <p>Component-based UI development.</p>
+          </div>
+          <div class="skill-box">
+            <ion-icon name="logo-python"></ion-icon>
+            <h3>Python</h3>
+            <p>Scripting, automation, and backend APIs.</p>
+          </div>
+          <div class="skill-box">
+            <ion-icon name="server-outline"></ion-icon>
+            <h3>SQL</h3>
+            <p>Database design, queries, and optimization.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section class="education-section">
+        <h2>Education</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="date">2021 - 2025</span>
+            <div class="content">
+              <h3>Bachelor of Technology (Computer Science)</h3>
+              <p>XYZ University, CGPA: 8.5/10</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="date">2019 - 2021</span>
+            <div class="content">
+              <h3>Higher Secondary (12th Grade)</h3>
+              <p>ABC Senior Secondary School, Percentage: 90%</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="date">2017 - 2019</span>
+            <div class="content">
+              <h3>Secondary School (10th Grade)</h3>
+              <p>ABC Senior Secondary School, Percentage: 92%</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Navigation JS -->
+  <script src="main.js"></script>
 </body>
+
 </html>
