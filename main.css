@@ -89,6 +89,13 @@ body.light-theme .theme-toggle {
   justify-content: space-between;
   align-items: center;
   transition: background 0.6s ease;
+  /* ADDED THESE PROPERTIES TO MAKE IT FIXED */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .mobile-topbar .theme-toggle {
@@ -192,7 +199,7 @@ body.light-theme .theme-toggle {
     flex-direction: column;
     text-align: center;
     padding: 40px 20px;
-    margin-top: -20px;
+    margin-top: 40px;
   }
 
   .hero-image {
@@ -269,7 +276,7 @@ body.light-theme .hero-content h1 span {
 
 /* ====== MAIN CONTENT ====== */
 .main-content {
-  padding: 120px 40px 100px; /* Match nav-content padding */
+  padding: 1px 40px 100px; /* Match nav-content padding */
   max-width: 1200px; /* Match nav-content max-width */
   margin: 0 auto; /* Center the content */
 }
