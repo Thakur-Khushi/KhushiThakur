@@ -288,6 +288,7 @@ body.light-theme .hero-content h1 span {
   align-items: center;
   padding: 100px 40px;
 
+  margin-top: 80px; /* To avoid overlap with fixed navbar */
   flex-wrap: wrap;
 }
 
