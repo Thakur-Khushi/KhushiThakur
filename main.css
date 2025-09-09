@@ -222,10 +222,6 @@ body.light-theme .nav-content ul li a:hover {
   color: #3a6073;
 }
 
-body.light-theme .hero-section {
-  background: linear-gradient(135deg, #dfe9f3, #ffffff);
-}
-
 body.light-theme .social-icons a {
   color: #111;
 }
@@ -273,7 +269,9 @@ body.light-theme .hero-content h1 span {
 
 /* ====== MAIN CONTENT ====== */
 .main-content {
-  padding: 80px 20px 100px;
+  padding: 120px 40px 100px; /* Match nav-content padding */
+  max-width: 1200px; /* Match nav-content max-width */
+  margin: 0 auto; /* Center the content */
 }
 
 /* ====== HERO SECTION ====== */
@@ -282,7 +280,7 @@ body.light-theme .hero-content h1 span {
   justify-content: space-between;
   align-items: center;
   padding: 100px 40px;
-  background: linear-gradient(135deg, #16222a, #3a6073);
+
   flex-wrap: wrap;
 }
 
