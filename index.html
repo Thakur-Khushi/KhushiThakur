@@ -4,12 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio</title>
+  <title>Portfolio | Umang Thakur</title>
   <link rel="stylesheet" href="main.css" />
+
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- SEO -->
+  <meta name="description"
+    content="Umang Thakur - Web Developer Portfolio. Showcasing projects, skills, and experience in modern web development.">
+  <meta name="keywords" content="Umang Thakur, Web Developer, React, Portfolio, HTML, CSS, JavaScript, Projects">
+  <link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
 
 <body>
@@ -21,11 +30,12 @@
       <div class="nav-content">
         <div class="logo">umang.</div>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Skills</a></li>
-          <li><a href="#">Education</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="theme-toggle" id="desktopThemeToggle">🌙</button>
       </div>
@@ -37,8 +47,7 @@
       <button class="theme-toggle" id="themeToggle">🌙</button>
     </div>
 
-
-    <!-- ===== BOTTOM NAVIGATION (Mobile Only) ===== -->
+    <!-- Bottom Navigation (Mobile Only) -->
     <div class="bottom-navigation">
       <a href="#home" class="list active">
         <div class="icon">
@@ -57,6 +66,12 @@
           <ion-icon name="settings-outline"></ion-icon>
         </div>
         <div class="text">Skills</div>
+      </a>
+      <a href="#projects" class="list">
+        <div class="icon">
+          <ion-icon name="briefcase-outline"></ion-icon>
+        </div>
+        <div class="text">Projects</div>
       </a>
       <a href="#education" class="list">
         <div class="icon">
@@ -77,8 +92,6 @@
         </div>
       </div>
     </div>
-
-
   </div>
 
   <!-- MAIN PAGE CONTENT -->
@@ -86,108 +99,169 @@
     <div class="content-wrapper">
 
       <!-- Hero Section -->
-      <section class="hero-section">
-        <div class="hero-content">
-          <h1>Hi, I'm <span>Umang Tahkur</span></h1>
-          <h2>Web Developer</h2>
-          <p>I'm a professional Web Developer. Our main goal is to help & satisfy the Local & Global Clients by web
-            development solutions.</p>
+      <section id="home" class="hero-section">
+        <div class="hero-content" data-aos="fade-right">
+          <h1>Hi, I'm <span>Umang Thakur</span></h1>
+          <h2><span id="typed-text"></span></h2>
+          <p>I'm a professional Web Developer. My goal is to help & satisfy Local & Global Clients with impactful web
+            solutions.</p>
           <div class="social-icons">
             <a href="#">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
             <a href="#">
-              <ion-icon name="logo-instagram"></ion-icon>
+              <ion-icon name="logo-github"></ion-icon>
             </a>
             <a href="#">
-              <ion-icon name="logo-facebook"></ion-icon>
+              <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </div>
-          <button class="cta-button">Download CV</button>
+          <a href="cv.pdf" download class="cta-button">Download CV</a>
         </div>
-        <div class="hero-image">
+        <div class="hero-image" data-aos="fade-left">
           <img src="images/random.webp" alt="Hero Image">
         </div>
       </section>
 
-      <!-- About Section (Dummy) -->
-      <section class="about-section">
+      <!-- About -->
+      <section id="about" class="about-section" data-aos="fade-up">
         <h2>About Me</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
-        </p>
+        <div class="about-content">
+          <div class="about-text">
+            <p>
+              I'm a passionate Web Developer with a strong interest in creating modern, responsive,
+              and user-friendly web applications. My journey in tech started with curiosity about
+              how websites work, and now I love building them from scratch with clean and efficient code.
+            </p>
+            <p>
+              Besides coding, I enjoy exploring new technologies, solving problems, and continuously
+              improving my skills to stay updated with the latest industry trends.
+            </p>
+          </div>
+          <div class="about-image">
+            <img src="images/random.webp" alt="About Me">
+          </div>
+        </div>
       </section>
 
-      <!-- Skills Section (Dummy) -->
-      <!-- Skills Section -->
-      <section class="skills-section">
+      <!-- Skills -->
+      <section id="skills" class="skills-section" data-aos="fade-up">
         <h2>Skills</h2>
         <div class="skills-grid">
           <div class="skill-box">
             <ion-icon name="logo-html5"></ion-icon>
             <h3>HTML5</h3>
-            <p>Semantic structure and accessibility-first design.</p>
           </div>
           <div class="skill-box">
             <ion-icon name="logo-css3"></ion-icon>
             <h3>CSS3</h3>
-            <p>Modern layouts with Flexbox, Grid, and animations.</p>
           </div>
           <div class="skill-box">
             <ion-icon name="logo-javascript"></ion-icon>
             <h3>JavaScript</h3>
-            <p>Interactive and dynamic web applications.</p>
           </div>
           <div class="skill-box">
             <ion-icon name="logo-react"></ion-icon>
             <h3>React</h3>
-            <p>Component-based UI development.</p>
           </div>
           <div class="skill-box">
             <ion-icon name="logo-python"></ion-icon>
             <h3>Python</h3>
-            <p>Scripting, automation, and backend APIs.</p>
           </div>
           <div class="skill-box">
             <ion-icon name="server-outline"></ion-icon>
             <h3>SQL</h3>
-            <p>Database design, queries, and optimization.</p>
           </div>
         </div>
       </section>
 
-      <!-- Education Section -->
-      <section class="education-section">
+      <!-- Projects -->
+      <section id="projects" class="projects-section" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="images/project1.webp" alt="Project 1">
+            <h3>Portfolio Website</h3>
+            <p>Personal responsive portfolio built with HTML, CSS, and JavaScript.</p>
+            <div class="project-links">
+              <a href="#">🔗 Demo</a>
+              <a href="#">💻 Code</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/project2.webp" alt="Project 2">
+            <h3>Weather App</h3>
+            <p>Real-time weather forecast app using OpenWeather API and React.</p>
+            <div class="project-links">
+              <a href="#">🔗 Demo</a>
+              <a href="#">💻 Code</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="images/project3.webp" alt="Project 3">
+            <h3>Task Manager</h3>
+            <p>Full-stack MERN task management app with authentication.</p>
+            <div class="project-links">
+              <a href="#">🔗 Demo</a>
+              <a href="#">💻 Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section id="education" class="education-section" data-aos="fade-up">
         <h2>Education</h2>
         <div class="timeline">
           <div class="timeline-item">
             <span class="date">2021 - 2025</span>
             <div class="content">
-              <h3>Bachelor of Technology (Computer Science)</h3>
+              <h3>B.Tech (Computer Science)</h3>
               <p>XYZ University, CGPA: 8.5/10</p>
             </div>
           </div>
           <div class="timeline-item">
             <span class="date">2019 - 2021</span>
             <div class="content">
-              <h3>Higher Secondary (12th Grade)</h3>
-              <p>ABC Senior Secondary School, Percentage: 90%</p>
+              <h3>Higher Secondary</h3>
+              <p>ABC School, 90%</p>
             </div>
           </div>
           <div class="timeline-item">
             <span class="date">2017 - 2019</span>
             <div class="content">
-              <h3>Secondary School (10th Grade)</h3>
-              <p>ABC Senior Secondary School, Percentage: 92%</p>
+              <h3>Secondary School</h3>
+              <p>ABC School, 92%</p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Contact -->
+      <section id="contact" class="contact-section" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <p>If you'd like to collaborate, feel free to reach out:</p>
+        <div class="contact-info">
+          <p><strong>Email:</strong> yourmail@example.com</p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+          <p><strong>Location:</strong> New Delhi, India</p>
+        </div>
+        <form class="contact-form">
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
     </div>
   </main>
 
-  <!-- Navigation JS -->
+  <!-- Scripts -->
   <script src="main.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 
 </html>
