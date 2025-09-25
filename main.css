@@ -772,3 +772,58 @@ section {
     font-size: 1.1em;
   }
 }
+
+/* ====== SCROLL ANIMATION FOR MOBILE NAVIGATION ====== */
+@media screen and (max-width: 768px) {
+  .bottom-navigation .list {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+
+  /* When scrolling down */
+  .scroll-down .bottom-navigation .list {
+    transform: translateY(100%);
+  }
+
+  /* When scrolling up */
+  .scroll-up .bottom-navigation .list {
+    transform: translateY(0);
+  }
+
+  /* Keep the active icon in place */
+  .bottom-navigation .list.active {
+    transform: translateY(0) !important;
+  }
+
+  /* Smooth transition for indicator */
+  .bottom-navigation .indicator {
+    transition: transform 0.3s ease, left 0.3s ease;
+  }
+
+  /* When scrolling down */
+  .scroll-down .bottom-navigation .indicator {
+    transform: translateY(100%);
+  }
+
+  /* When scrolling up */
+  .scroll-up .bottom-navigation .indicator {
+    transform: translateY(0);
+  }
+}
+
+/* ====== HERO SECTION LIGHT THEME FIXES ====== */
+body.light-theme .hero-content p {
+  color: #333; /* Dark gray color for better readability in light theme */
+}
+
+body.light-theme .hero-content h2 {
+  color: #3a6073; /* Matches your light theme color scheme */
+}
+
+body.light-theme .social-icons a {
+  color: #333;
+}
+
+body.light-theme .social-icons a:hover {
+  color: #3a6073;
+}
