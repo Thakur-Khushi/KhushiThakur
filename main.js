@@ -1,10 +1,12 @@
-// ===== INDICATOR FUNCTIONALITY =====
+// ===== GLOBAL SELECTIONS =====
 const navItems = document.querySelectorAll('.bottom-navigation .list');
 const indicator = document.querySelector('.bottom-navigation .indicator');
 const indicatorIcon = indicator.querySelector('ion-icon');
+const sections = document.querySelectorAll('section');
 
+// ===== INDICATOR FUNCTIONALITY =====
 function updateIndicator(activeItem) {
-  navItems.forEach(item => {
+  navItems.forEach((item) => {
     item.classList.remove('active');
     item.querySelector('.icon').style.opacity = '1';
   });
@@ -20,11 +22,29 @@ function updateIndicator(activeItem) {
   indicatorIcon.setAttribute('name', activeIconName);
 }
 
-// Initial State on Load
-updateIndicator(document.querySelector('.bottom-navigation .list.active'));
+// ===== SCROLL-BASED INDICATOR =====
+window.addEventListener('scroll', () => {
+  let current = '';
 
-// Navigation Item Click Events
-navItems.forEach(item => {
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+
+    if (window.scrollY >= sectionTop - sectionHeight / 3) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navItems.forEach((item) => {
+    const link = item.querySelector('a');
+    if (link && link.getAttribute('href').slice(1) === current) {
+      updateIndicator(item);
+    }
+  });
+});
+
+// ===== CLICK EVENTS FOR NAVIGATION =====
+navItems.forEach((item) => {
   item.addEventListener('click', () => updateIndicator(item));
 });
 
@@ -32,20 +52,24 @@ navItems.forEach(item => {
 const themeToggles = document.querySelectorAll('.theme-toggle');
 let isDarkTheme = true;
 
-themeToggles.forEach(toggle => {
+themeToggles.forEach((toggle) => {
   toggle.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
     isDarkTheme = !isDarkTheme;
 
     // Change icon text 🌙 or ☀️
-    themeToggles.forEach(btn => {
+    themeToggles.forEach((btn) => {
       btn.textContent = isDarkTheme ? '🌙' : '☀️';
     });
   });
 });
 
 // ===== HERO SECTION FADE-IN ANIMATION =====
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
+  // Initial indicator state
+  updateIndicator(document.querySelector('.bottom-navigation .list.active'));
+
+  // Hero content animation
   const heroContent = document.querySelector('.hero-content');
   heroContent.style.opacity = 0;
 
