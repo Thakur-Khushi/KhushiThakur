@@ -1774,15 +1774,16 @@ body.light-theme .hero-content h2 {
     max-width: 1100px;
   }
 
-  /* Keep side icons visible and inside viewport on desktop/tablet */
+  /* Move icons inward so they align with the page container.
+     Uses a responsive calculation based on the page max width and keeps a safe min/max. */
   .side-icons.left-side {
-    left: 24px;
+    left: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
   }
   .side-icons.right-side {
-    right: 24px;
+    right: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
   }
   .social-icons-vertical {
-    right: 24px;
+    right: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
   }
 
   /* Project cards and timeline spacing */
