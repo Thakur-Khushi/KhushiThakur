@@ -1670,69 +1670,151 @@ body.light-theme .hero-content h2 {
   }
 }
 
-/* ====== TABLET PERFORMANCE OPTIMIZATIONS ====== */
-@media screen and (max-width: 1024px) {
-  /* Reduce animation intensities for better performance */
-  .side-icon:hover {
-    transform: scale(1.1) translateX(var(--hover-translate, 0));
-    box-shadow: 0 6px 15px rgba(0, 230, 184, 0.3),
-      0 0 0 4px rgba(0, 230, 184, 0.1);
+/* ====== DESKTOP / TABLET SPACING SYSTEM (no changes to mobile) ====== */
+/* Only applies for screens >= 769px so mobile view remains intact */
+@media screen and (min-width: 769px) {
+  :root {
+    --page-max-width: 1200px;
+    --gutter: 40px; /* main outer padding */
+    --gutter-sm: 28px; /* inner padding for medium screens */
+    --section-gap-lg: 92px;
+    --section-gap: 64px;
+    --section-gap-sm: 44px;
   }
 
-  .skill-box:hover,
-  .project-card:hover,
-  .timeline-item .content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  /* Page container alignment */
+  .main-content,
+  .nav-content,
+  .content-wrapper {
+    max-width: var(--page-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+    box-sizing: border-box;
   }
 
-  /* Optimize images */
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-}
-
-/* ====== TABLET TYPOGRAPHY REFINEMENT ====== */
-@media screen and (max-width: 1024px) {
-  h1 {
-    font-size: 2.3rem;
+  /* reduce inner margin on medium tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .main-content,
+    .nav-content,
+    .content-wrapper {
+      padding-left: var(--gutter-sm);
+      padding-right: var(--gutter-sm);
+    }
   }
 
-  h2 {
-    font-size: 2rem;
+  /* Section spacing */
+  section {
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
   }
 
-  h3 {
-    font-size: 1.3rem;
+  /* Slightly tighter spacing for medium tablets */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    section {
+      padding-top: var(--section-gap-sm);
+      padding-bottom: var(--section-gap-sm);
+    }
   }
 
-  .nav-content .logo {
-    font-size: 1.5rem;
+  /* HERO adjustments (desktop/tablet) */
+  .hero-section {
+    padding-top: calc(var(--section-gap) - 8px);
+    padding-bottom: calc(var(--section-gap) - 8px);
+    margin-top: 78px; /* keep room for fixed nav */
+    gap: 40px;
+    align-items: center;
   }
 
-  .theme-toggle {
-    font-size: 1.2rem;
+  .hero-content {
+    max-width: 54%;
   }
-}
-
-/* ====== TABLET FORM OPTIMIZATIONS ====== */
-@media screen and (max-width: 1024px) {
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form button {
-    font-size: 16px; /* Prevent zoom on iOS */
+  .hero-image {
+    max-width: 40%;
   }
-}
 
-/* ====== ENSURE SMOOTH TRANSITIONS ====== */
-@media screen and (max-width: 1024px) {
-  .hero-section,
-  .about-section,
-  .skills-section,
-  .projects-section,
-  .education-section,
-  .contact-section {
-    transition: all 0.3s ease;
+  .hero-content h1 {
+    font-size: 3.4rem;
+    line-height: 1.02;
+    margin-bottom: 6px;
+  }
+  .hero-content h2 {
+    font-size: 1.9rem;
+    margin-bottom: 14px;
+  }
+  .hero-content p {
+    font-size: 1.05rem;
+    max-width: 72ch;
+    color: inherit;
+  }
+
+  /* Buttons */
+  .hero-buttons {
+    gap: 18px;
+  }
+  .cta-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  /* Content columns for major sections */
+  .about-content,
+  .projects-grid,
+  .skills-grid {
+    gap: 28px;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1100px;
+  }
+
+  /* Keep side icons visible and inside viewport on desktop/tablet */
+  .side-icons.left-side {
+    left: 24px;
+  }
+  .side-icons.right-side {
+    right: 24px;
+  }
+  .social-icons-vertical {
+    right: 24px;
+  }
+
+  /* Project cards and timeline spacing */
+  .project-card {
+    padding-bottom: 20px;
+  }
+  .timeline {
+    padding: 8px 0;
+    max-width: 900px;
+  }
+
+  /* Footer and small polish */
+  footer {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  /* Use slightly larger base on desktop */
+  @media (min-width: 1025px) {
+    html {
+      font-size: 100%;
+    } /* keep desktop default */
+    :root {
+      --gutter: 48px;
+      --section-gap: 92px;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+    }
+    .projects-grid {
+      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 }
