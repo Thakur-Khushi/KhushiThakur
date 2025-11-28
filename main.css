@@ -18,7 +18,7 @@ body {
 }
 
 /* ====== SIDE ICONS ====== */
-/* ====== SIDE ICONS WITH SHORTER LINES ====== */
+/* ====== SIDE ICONS ====== */
 .side-icons {
   position: fixed;
   top: 50%;
@@ -40,25 +40,34 @@ body {
 .side-icon-group {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Reduced gap */
+  gap: 25px;
   align-items: center;
+  position: relative;
 }
 
-/* Add connecting lines between icons */
+/* Add connecting lines between icons using proper pseudo-elements */
 .side-icon-group::before {
   content: '';
+  position: absolute;
   width: 2px;
-  height: 40px; /* Much shorter line */
+  height: 40px;
   background: linear-gradient(to bottom, #00e6b8, #6e8efb);
   border-radius: 1px;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .side-icon-group::after {
   content: '';
+  position: absolute;
   width: 2px;
-  height: 40px; /* Much shorter line */
+  height: 40px;
   background: linear-gradient(to bottom, #00e6b8, #6e8efb);
   border-radius: 1px;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .side-icon {
@@ -79,6 +88,7 @@ body {
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
 }
 
 .side-icon ion-icon {
@@ -152,10 +162,163 @@ body.light-theme .tooltip {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Mobile responsiveness */
+/* ====== MOBILE RESPONSIVENESS FOR SIDE ICONS ====== */
+
+/* Tablet and smaller desktop */
 @media screen and (max-width: 1100px) {
+  .side-icons.left-side {
+    left: 20px;
+  }
+
+  .side-icons.right-side {
+    right: 20px;
+  }
+
+  .side-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .side-icon ion-icon {
+    font-size: 1.2rem;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 35px;
+  }
+
+  .side-icon-group::before {
+    top: -40px;
+  }
+
+  .side-icon-group::after {
+    bottom: -40px;
+  }
+
+  .tooltip {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Mobile devices */
+@media screen and (max-width: 768px) {
   .side-icons {
+    display: flex !important;
+  }
+
+  .side-icons.left-side {
+    left: 15px;
+  }
+
+  .side-icons.right-side {
+    right: 15px;
+  }
+
+  .side-icon-group {
+    gap: 20px;
+  }
+
+  .side-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(
+      135deg,
+      rgba(26, 42, 58, 0.9),
+      rgba(15, 32, 39, 0.9)
+    );
+  }
+
+  .side-icon ion-icon {
+    font-size: 1.1rem;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 30px;
+  }
+
+  .side-icon-group::before {
+    top: -35px;
+  }
+
+  .side-icon-group::after {
+    bottom: -35px;
+  }
+
+  .tooltip {
     display: none;
+  }
+}
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+  .side-icons.left-side {
+    left: 10px;
+  }
+
+  .side-icons.right-side {
+    right: 10px;
+  }
+
+  .side-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .side-icon ion-icon {
+    font-size: 1rem;
+  }
+
+  .side-icon-group {
+    gap: 15px;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 25px;
+  }
+
+  .side-icon-group::before {
+    top: -30px;
+  }
+
+  .side-icon-group::after {
+    bottom: -30px;
+  }
+}
+
+/* Very small devices */
+@media screen and (max-width: 360px) {
+  .side-icons.left-side {
+    left: 8px;
+  }
+
+  .side-icons.right-side {
+    right: 8px;
+  }
+
+  .side-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .side-icon ion-icon {
+    font-size: 0.9rem;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 20px;
+  }
+
+  .side-icon-group::before {
+    top: -25px;
+  }
+
+  .side-icon-group::after {
+    bottom: -25px;
   }
 }
 /* ====== TOP NAVBAR (Tablet & Laptop) ====== */

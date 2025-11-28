@@ -99,6 +99,50 @@ function typeWriter() {
   }
 }
 
+// ===== MOBILE TOUCH SUPPORT FOR SIDE ICONS =====
+function setupMobileSideIcons() {
+  const sideIcons = document.querySelectorAll('.side-icon');
+
+  sideIcons.forEach((icon) => {
+    // Add touch start event
+    icon.addEventListener('touchstart', function (e) {
+      e.preventDefault();
+      this.style.transform = 'translateY(-3px) scale(1.1)';
+      this.style.background = 'linear-gradient(135deg, #00e6b8, #6e8efb)';
+
+      // Show tooltip on mobile (temporary)
+      const tooltip = this.querySelector('.tooltip');
+      if (tooltip) {
+        tooltip.style.display = 'block';
+        tooltip.style.opacity = '1';
+        tooltip.style.transform = this.closest('.left-side')
+          ? 'translateX(0)'
+          : 'translateX(0)';
+
+        // Hide tooltip after 2 seconds
+        setTimeout(() => {
+          tooltip.style.opacity = '0';
+          setTimeout(() => {
+            tooltip.style.display = 'none';
+          }, 300);
+        }, 2000);
+      }
+    });
+
+    // Add touch end event
+    icon.addEventListener('touchend', function () {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.background = '';
+    });
+
+    // Add touch cancel event
+    icon.addEventListener('touchcancel', function () {
+      this.style.transform = 'translateY(0) scale(1)';
+      this.style.background = '';
+    });
+  });
+}
+
 // ===== HERO SECTION FADE-IN ANIMATION =====
 document.addEventListener('DOMContentLoaded', () => {
   // Initial indicator state
@@ -106,6 +150,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Start typing animation
   typeWriter();
+
+  // Setup mobile side icons
+  setupMobileSideIcons();
 
   // Hero content animation
   const heroContent = document.querySelector('.hero-content');
