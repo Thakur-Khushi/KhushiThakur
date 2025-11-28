@@ -64,10 +64,48 @@ themeToggles.forEach((toggle) => {
   });
 });
 
+// ===== TYPING ANIMATION =====
+const typedTextSpan = document.getElementById('typed-text');
+const professions = [
+  'Web Developer',
+  'Frontend Developer',
+  'UI/UX Designer',
+  'Problem Solver',
+];
+let professionIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeWriter() {
+  const currentProfession = professions[professionIndex];
+
+  if (isDeleting) {
+    typedTextSpan.textContent = currentProfession.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typedTextSpan.textContent = currentProfession.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  if (!isDeleting && charIndex === currentProfession.length) {
+    isDeleting = true;
+    setTimeout(typeWriter, 2000);
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    professionIndex = (professionIndex + 1) % professions.length;
+    setTimeout(typeWriter, 500);
+  } else {
+    setTimeout(typeWriter, isDeleting ? 100 : 150);
+  }
+}
+
 // ===== HERO SECTION FADE-IN ANIMATION =====
 document.addEventListener('DOMContentLoaded', () => {
   // Initial indicator state
   updateIndicator(document.querySelector('.bottom-navigation .list.active'));
+
+  // Start typing animation
+  typeWriter();
 
   // Hero content animation
   const heroContent = document.querySelector('.hero-content');

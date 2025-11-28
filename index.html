@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | Umang Thakur</title>
+  <title>Portfolio | khushi Thakur</title>
   <link rel="stylesheet" href="main.css" />
 
   <!-- Ionicons -->
@@ -16,19 +16,61 @@
 
   <!-- SEO -->
   <meta name="description"
-    content="Umang Thakur - Web Developer Portfolio. Showcasing projects, skills, and experience in modern web development.">
-  <meta name="keywords" content="Umang Thakur, Web Developer, React, Portfolio, HTML, CSS, JavaScript, Projects">
+    content="khushi Thakur - Web Developer Portfolio. Showcasing projects, skills, and experience in modern web development.">
+  <meta name="keywords" content="khushi Thakur, Web Developer, React, Portfolio, HTML, CSS, JavaScript, Projects">
   <link rel="icon" type="image/png" href="images/favicon.png" />
 </head>
 
 <body>
+  <!-- SIDE ICONS (Left) -->
+  <div class="side-icons left-side">
+    <div class="side-icon-group">
+      <a href="#" class="side-icon">
+        <ion-icon name="code-slash-outline"></ion-icon>
+        <span class="tooltip">Clean Code</span>
+      </a>
+      <a href="#" class="side-icon">
+        <ion-icon name="phone-portrait-outline"></ion-icon>
+        <span class="tooltip">Responsive</span>
+      </a>
+      <a href="#" class="side-icon">
+        <ion-icon name="rocket-outline"></ion-icon>
+        <span class="tooltip">Fast</span>
+      </a>
+      <a href="#" class="side-icon">
+        <ion-icon name="heart-outline"></ion-icon>
+        <span class="tooltip">Modern</span>
+      </a>
+    </div>
+    <div class="side-line"></div>
+  </div>
+
+  <!-- SIDE ICONS (Right) -->
+  <div class="side-icons right-side">
+    <div class="side-icon-group">
+      <a href="#" class="side-icon">
+        <ion-icon name="logo-linkedin"></ion-icon>
+        <span class="tooltip">LinkedIn</span>
+      </a>
+      <a href="#" class="side-icon">
+        <ion-icon name="logo-github"></ion-icon>
+        <span class="tooltip">GitHub</span>
+      </a>
+      <a href="#" class="side-icon">
+        <ion-icon name="logo-instagram"></ion-icon>
+        <span class="tooltip">Instagram</span>
+      </a>
+    </div>
+    <div class="side-line"></div>
+  </div>
+
   <!-- NAVIGATION WRAPPER -->
   <div class="navbar-container">
 
     <!-- Top Navbar (Tablet & Laptop) -->
     <div class="top-navbar">
       <div class="nav-content">
-        <div class="logo">umang.</div>
+        <div class="logo">khushi.</div>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -43,7 +85,7 @@
 
     <!-- Mobile Topbar -->
     <div class="mobile-topbar">
-      <div class="logo">umang.</div>
+      <div class="logo">khushi.</div>
       <button class="theme-toggle" id="themeToggle">🌙</button>
     </div>
 
@@ -116,22 +158,15 @@
       <!-- Hero Section -->
       <section id="home" class="hero-section">
         <div class="hero-content" data-aos="fade-right">
-          <h1>Hi, I'm <span>Umang Thakur</span></h1>
+          <h1>Hi, I'm <span>khushi Thakur</span></h1>
           <h2><span id="typed-text"></span></h2>
           <p>I'm a professional Web Developer. My goal is to help & satisfy Local & Global Clients with impactful web
             solutions.</p>
-          <div class="social-icons">
-            <a href="#">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-            <a href="#">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-            <a href="#">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
+
+          <div class="hero-buttons">
+            <a href="cv.pdf" download class="cta-button">Download CV</a>
+            <a href="#contact" class="cta-button secondary">Get In Touch</a>
           </div>
-          <a href="cv.pdf" download class="cta-button">Download CV</a>
         </div>
         <div class="hero-image" data-aos="fade-left">
           <img src="images/random.webp" alt="Hero Image">
