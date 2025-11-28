@@ -18,7 +18,7 @@ body {
 }
 
 /* ====== SIDE ICONS ====== */
-/* ====== SIDE ICONS ====== */
+/* ====== SIDE ICONS WITH OUTWARD HOVER ====== */
 .side-icons {
   position: fixed;
   top: 50%;
@@ -45,7 +45,7 @@ body {
   position: relative;
 }
 
-/* Add connecting lines between icons using proper pseudo-elements */
+/* Add connecting lines between icons */
 .side-icon-group::before {
   content: '';
   position: absolute;
@@ -85,63 +85,115 @@ body {
   color: #00e6b8;
   text-decoration: none;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   z-index: 2;
+  overflow: hidden;
 }
 
 .side-icon ion-icon {
   font-size: 1.4rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  z-index: 3;
 }
 
+/* Outward hover effect */
 .side-icon:hover {
   background: linear-gradient(135deg, #00e6b8, #6e8efb);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 230, 184, 0.3);
+  transform: scale(1.2) translateX(var(--hover-translate, 0));
+  box-shadow: 0 10px 30px rgba(0, 230, 184, 0.4),
+    0 0 0 8px rgba(0, 230, 184, 0.1);
+}
+
+/* Left side icons move left on hover */
+.side-icons.left-side .side-icon:hover {
+  --hover-translate: -10px;
+}
+
+/* Right side icons move right on hover */
+.side-icons.right-side .side-icon:hover {
+  --hover-translate: 10px;
 }
 
 .side-icon:hover ion-icon {
   color: white;
-  transform: scale(1.1);
+  transform: scale(1.2);
 }
 
-/* Tooltip */
+/* Enhanced Tooltip with outward animation */
 .tooltip {
   position: absolute;
-  right: 60px;
-  background: rgba(15, 32, 39, 0.9);
+  background: linear-gradient(
+    135deg,
+    rgba(15, 32, 39, 0.95),
+    rgba(44, 83, 100, 0.95)
+  );
   color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 0.8rem;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 600;
   white-space: nowrap;
   opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
   pointer-events: none;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 4;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Left side tooltips */
+.side-icons.left-side .tooltip {
+  right: 70px;
+  transform: translateX(-20px) scale(0.8);
+  border-left: 3px solid #00e6b8;
+}
+
+/* Right side tooltips */
 .side-icons.right-side .tooltip {
-  right: auto;
-  left: 60px;
-  transform: translateX(10px);
+  left: 70px;
+  transform: translateX(20px) scale(0.8);
+  border-right: 3px solid #00e6b8;
 }
 
+/* Tooltip arrow */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  transform: translateY(-50%);
+}
+
+/* Left side arrow */
+.side-icons.left-side .tooltip::before {
+  right: -16px;
+  border-left-color: rgba(15, 32, 39, 0.95);
+}
+
+/* Right side arrow */
+.side-icons.right-side .tooltip::before {
+  left: -16px;
+  border-right-color: rgba(15, 32, 39, 0.95);
+}
+
+/* Hover states */
 .side-icon:hover .tooltip {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) scale(1);
 }
 
 /* Light theme support */
 body.light-theme .side-icon {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(224, 234, 252, 0.8)
+    rgba(255, 255, 255, 0.9),
+    rgba(224, 234, 252, 0.9)
   );
   border: 1px solid rgba(0, 0, 0, 0.1);
   color: #3a6073;
@@ -149,6 +201,8 @@ body.light-theme .side-icon {
 
 body.light-theme .side-icon:hover {
   background: linear-gradient(135deg, #3a6073, #6e8efb);
+  box-shadow: 0 10px 30px rgba(58, 96, 115, 0.3),
+    0 0 0 8px rgba(58, 96, 115, 0.1);
 }
 
 body.light-theme .side-icon-group::before,
@@ -157,12 +211,33 @@ body.light-theme .side-icon-group::after {
 }
 
 body.light-theme .tooltip {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(224, 234, 252, 0.95)
+  );
   color: #111;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ====== MOBILE RESPONSIVENESS FOR SIDE ICONS ====== */
+body.light-theme .side-icons.left-side .tooltip {
+  border-left: 3px solid #3a6073;
+}
+
+body.light-theme .side-icons.right-side .tooltip {
+  border-right: 3px solid #3a6073;
+}
+
+body.light-theme .side-icons.left-side .tooltip::before {
+  border-left-color: rgba(255, 255, 255, 0.95);
+}
+
+body.light-theme .side-icons.right-side .tooltip::before {
+  border-right-color: rgba(255, 255, 255, 0.95);
+}
+
+/* ====== MOBILE RESPONSIVENESS ====== */
 
 /* Tablet and smaller desktop */
 @media screen and (max-width: 1100px) {
@@ -183,6 +258,10 @@ body.light-theme .tooltip {
     font-size: 1.2rem;
   }
 
+  .side-icon:hover {
+    transform: scale(1.15) translateX(var(--hover-translate, 0));
+  }
+
   .side-icon-group::before,
   .side-icon-group::after {
     height: 35px;
@@ -197,8 +276,16 @@ body.light-theme .tooltip {
   }
 
   .tooltip {
-    font-size: 0.7rem;
-    padding: 6px 10px;
+    font-size: 0.8rem;
+    padding: 10px 15px;
+  }
+
+  .side-icons.left-side .tooltip {
+    right: 60px;
+  }
+
+  .side-icons.right-side .tooltip {
+    left: 60px;
   }
 }
 
@@ -234,6 +321,12 @@ body.light-theme .tooltip {
     font-size: 1.1rem;
   }
 
+  .side-icon:hover {
+    transform: scale(1.1) translateX(var(--hover-translate, 0));
+    box-shadow: 0 8px 20px rgba(0, 230, 184, 0.3),
+      0 0 0 6px rgba(0, 230, 184, 0.1);
+  }
+
   .side-icon-group::before,
   .side-icon-group::after {
     height: 30px;
@@ -248,7 +341,7 @@ body.light-theme .tooltip {
   }
 
   .tooltip {
-    display: none;
+    display: none; /* Hide tooltips on mobile for cleaner experience */
   }
 }
 
@@ -273,6 +366,10 @@ body.light-theme .tooltip {
 
   .side-icon-group {
     gap: 15px;
+  }
+
+  .side-icon:hover {
+    transform: scale(1.08) translateX(var(--hover-translate, 0));
   }
 
   .side-icon-group::before,
@@ -306,6 +403,10 @@ body.light-theme .tooltip {
 
   .side-icon ion-icon {
     font-size: 0.9rem;
+  }
+
+  .side-icon:hover {
+    transform: scale(1.05) translateX(var(--hover-translate, 0));
   }
 
   .side-icon-group::before,
