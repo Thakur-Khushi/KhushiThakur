@@ -461,3 +461,31 @@ window.addEventListener('beforeunload', () => {
     clearTimeout(typingTimeout);
   }
 });
+
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    message: this.message.value,
+  };
+
+  fetch(
+    'https://script.google.com/macros/s/AKfycbzi-bsCuXBoNM8FLlPO7VX3grLcAZ4lVnrO1KSoCahaPj2g6Q2iUY7uWJ7zNC6ciYle/exec',
+    {
+      method: 'POST',
+      body: JSON.stringify(formData),
+    }
+  )
+    .then((res) => res.json())
+    .then(() => {
+      document.getElementById('statusMessage').innerHTML =
+        'Message Sent Successfully!';
+      this.reset();
+    })
+    .catch((err) => {
+      document.getElementById('statusMessage').innerHTML =
+        'Failed to send message!';
+    });
+});
