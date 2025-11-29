@@ -310,27 +310,26 @@
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- Contact Section -->
       <section id="contact" class="contact-section" data-aos="fade-up">
         <h2>Contact Me</h2>
         <p>If you'd like to collaborate, feel free to reach out:</p>
         <div class="contact-info">
           <p><strong>Email:</strong> thakurramkhushi@gmail.com</p>
-
-          <p><strong>Location:</strong> Pune,Maharashtra, India</p>
+          <p><strong>Location:</strong> Pune, Maharashtra, India</p>
         </div>
-        <form class="contact-form" id="contactForm">
+
+        <!-- Form -->
+        <form id="contactForm">
           <input type="text" name="name" placeholder="Your Name" required />
           <input type="email" name="email" placeholder="Your Email" required />
           <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-
           <button type="submit">Send Message</button>
         </form>
 
-        <p id="statusMessage"></p>
-
-
+        <p id="formStatus" style="margin-top:10px; color:green;"></p>
       </section>
+
     </div>
   </main>
 
@@ -340,6 +339,37 @@
   <script>
     AOS.init();
   </script>
+
+  <script>
+    // Paste your Google Apps Script Web App URL here
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbzWCk_CBDSJx488Hwc1I8g4dp0T615Dwg4K8wpgeDio7uiaZnUdK0-wZeMOHBOUH87olg/exec";
+
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+
+      fetch(scriptURL, {
+          method: "POST",
+          body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(() => {
+          document.getElementById("formStatus").innerText = "Message sent successfully!";
+          this.reset();
+        })
+        .catch(err => {
+          document.getElementById("formStatus").innerText = "Error sending message.";
+          console.error(err);
+        });
+    });
+  </script>
+
 </body>
 
 </html>
