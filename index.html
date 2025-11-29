@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | khushi Thakur</title>
+  <title>khushi Thakur</title>
   <link rel="stylesheet" href="main.css" />
 
   <!-- Ionicons -->
@@ -256,7 +256,7 @@
             <h3>Portfolio Website</h3>
             <p>Personal responsive portfolio built with HTML, CSS, and JavaScript.</p>
             <div class="project-links">
-              <a href="https://thakur-khushi.github.io/my-portfolio/">🔗 Demo</a>
+              <a href="https://thakur-khushi.github.io/UmangThakur/">🔗 Demo</a>
 
             </div>
           </div>
@@ -319,12 +319,20 @@
 
           <p><strong>Location:</strong> Pune,Maharashtra, India</p>
         </div>
-        <form class="contact-form">
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea placeholder="Your Message" rows="4" required></textarea>
+        <form class="contact-form" action="https://formsubmit.co/thakurramkhushi@gmail.com" method="POST">
+
+          <!-- FormSubmit Required Inputs -->
+          <input type="hidden" name="_subject" value="New Contact Form Submission!">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+
           <button type="submit">Send Message</button>
         </form>
+
       </section>
     </div>
   </main>
