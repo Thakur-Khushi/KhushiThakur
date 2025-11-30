@@ -1819,3 +1819,37 @@ body.light-theme .hero-content h2 {
     }
   }
 }
+
+/* ================================================
+   🔧 FIX: Mobile Double-Tap Issue
+   Disable Hover Animations & Tooltips on Mobile
+   Ensures first tap opens the link immediately.
+   ================================================ */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover visual animations on mobile */
+  .side-icon:hover,
+  .side-icon:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    background: inherit !important;
+  }
+
+  .side-icon:hover ion-icon {
+    transform: none !important;
+    color: inherit !important;
+  }
+
+  /* Fully remove tooltip behavior on mobile */
+  .tooltip {
+    display: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* Improve mobile tap feeling */
+.side-icon {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}

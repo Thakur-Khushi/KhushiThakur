@@ -372,6 +372,14 @@
         });
     });
   </script>
+  <script>
+    document.querySelectorAll('.side-icon').forEach(icon => {
+      icon.addEventListener('touchstart', () => icon.click(), {
+        passive: true
+      });
+    });
+  </script>
+
 
 </body>
 
