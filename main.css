@@ -17,316 +17,139 @@ body {
   transition: background 0.6s ease, color 0.6s ease;
 }
 
-/* ====== SIDE ICONS ====== */
-/* ====== SIDE ICONS WITH OUTWARD HOVER ====== */
+/* ======================================================
+   ⭐ FIXED SIDE ICON SYSTEM - BOTH SIDES VISIBLE ON ALL DEVICES
+====================================================== */
+
+/* Common styles for both side icons */
 .side-icons {
   position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 998;
   display: flex;
-  align-items: center;
-  transition: all 0.6s ease;
+  flex-direction: column;
+  gap: 22px;
+  z-index: 999;
+  transition: none !important;
 }
 
+/* Left side icons */
 .side-icons.left-side {
-  left: 40px;
+  left: 30px;
 }
 
+/* Right side icons */
 .side-icons.right-side {
-  right: 40px;
+  right: 30px;
 }
 
+/* Keep layout ALWAYS VERTICAL */
 .side-icon-group {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  align-items: center;
+  gap: 22px;
   position: relative;
+  align-items: center;
 }
 
-/* Add connecting lines between icons */
-.side-icon-group::before {
-  content: '';
-  position: absolute;
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(to bottom, #00e6b8, #6e8efb);
-  border-radius: 1px;
-  top: -45px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
+/* Connecting line for both sides */
+.side-icon-group::before,
 .side-icon-group::after {
   content: '';
-  position: absolute;
   width: 2px;
   height: 40px;
   background: linear-gradient(to bottom, #00e6b8, #6e8efb);
   border-radius: 1px;
-  bottom: -45px;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
+.side-icon-group::before {
+  top: -45px;
+}
+.side-icon-group::after {
+  bottom: -45px;
+}
+
+/* Icon Style */
 .side-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: linear-gradient(
-    135deg,
-    rgba(26, 42, 58, 0.8),
-    rgba(15, 32, 39, 0.8)
-  );
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
-  color: #00e6b8;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: none !important;
+  cursor: pointer;
+  box-shadow: none !important;
   text-decoration: none;
-  position: relative;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  z-index: 2;
-  overflow: hidden;
 }
 
+/* Icon symbol size */
 .side-icon ion-icon {
-  font-size: 1.4rem;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  z-index: 3;
+  font-size: 20px;
+  color: #00e6b8;
+  transition: none !important;
 }
 
-/* Outward hover effect */
+/* Remove hover effects */
 .side-icon:hover {
-  background: linear-gradient(135deg, #00e6b8, #6e8efb);
-  transform: scale(1.2) translateX(var(--hover-translate, 0));
-  box-shadow: 0 10px 30px rgba(0, 230, 184, 0.4),
-    0 0 0 8px rgba(0, 230, 184, 0.1);
-}
-
-/* Left side icons move left on hover */
-.side-icons.left-side .side-icon:hover {
-  --hover-translate: -10px;
-}
-
-/* Right side icons move right on hover */
-.side-icons.right-side .side-icon:hover {
-  --hover-translate: 10px;
+  background: rgba(255, 255, 255, 0.08) !important;
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 .side-icon:hover ion-icon {
-  color: white;
-  transform: scale(1.2);
+  color: #00e6b8 !important;
+  transform: none !important;
 }
 
-/* Enhanced Tooltip with outward animation */
+/* Disable tooltip */
 .tooltip {
-  position: absolute;
-  background: linear-gradient(
-    135deg,
-    rgba(15, 32, 39, 0.95),
-    rgba(44, 83, 100, 0.95)
-  );
-  color: white;
-  padding: 12px 18px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  white-space: nowrap;
-  opacity: 0;
-  pointer-events: none;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  z-index: 4;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: none !important;
 }
 
-/* Left side tooltips */
-.side-icons.left-side .tooltip {
-  right: 70px;
-  transform: translateX(-20px) scale(0.8);
-  border-left: 3px solid #00e6b8;
-}
+/* ======================================================
+   📱 MOBILE VERSION - BOTH SIDES VISIBLE
+====================================================== */
 
-/* Right side tooltips */
-.side-icons.right-side .tooltip {
-  left: 70px;
-  transform: translateX(20px) scale(0.8);
-  border-right: 3px solid #00e6b8;
-}
-
-/* Tooltip arrow */
-.tooltip::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 0;
-  height: 0;
-  border: 8px solid transparent;
-  transform: translateY(-50%);
-}
-
-/* Left side arrow */
-.side-icons.left-side .tooltip::before {
-  right: -16px;
-  border-left-color: rgba(15, 32, 39, 0.95);
-}
-
-/* Right side arrow */
-.side-icons.right-side .tooltip::before {
-  left: -16px;
-  border-right-color: rgba(15, 32, 39, 0.95);
-}
-
-/* Hover states */
-.side-icon:hover .tooltip {
-  opacity: 1;
-  transform: translateX(0) scale(1);
-}
-
-/* Light theme support */
-body.light-theme .side-icon {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.9),
-    rgba(224, 234, 252, 0.9)
-  );
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: #3a6073;
-}
-
-body.light-theme .side-icon:hover {
-  background: linear-gradient(135deg, #3a6073, #6e8efb);
-  box-shadow: 0 10px 30px rgba(58, 96, 115, 0.3),
-    0 0 0 8px rgba(58, 96, 115, 0.1);
-}
-
-body.light-theme .side-icon-group::before,
-body.light-theme .side-icon-group::after {
-  background: linear-gradient(to bottom, #3a6073, #6e8efb);
-}
-
-body.light-theme .tooltip {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.95),
-    rgba(224, 234, 252, 0.95)
-  );
-  color: #111;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-body.light-theme .side-icons.left-side .tooltip {
-  border-left: 3px solid #3a6073;
-}
-
-body.light-theme .side-icons.right-side .tooltip {
-  border-right: 3px solid #3a6073;
-}
-
-body.light-theme .side-icons.left-side .tooltip::before {
-  border-left-color: rgba(255, 255, 255, 0.95);
-}
-
-body.light-theme .side-icons.right-side .tooltip::before {
-  border-right-color: rgba(255, 255, 255, 0.95);
-}
-
-/* ====== MOBILE RESPONSIVENESS ====== */
-
-/* Tablet and smaller desktop */
-@media screen and (max-width: 1100px) {
+@media (max-width: 768px) {
+  /* Left side icons on mobile */
   .side-icons.left-side {
-    left: 20px;
+    left: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    gap: 14px;
   }
 
+  /* Right side icons on mobile - SHOW BOTH SIDES */
   .side-icons.right-side {
-    right: 20px;
-  }
-
-  .side-icon {
-    width: 45px;
-    height: 45px;
-  }
-
-  .side-icon ion-icon {
-    font-size: 1.2rem;
-  }
-
-  .side-icon:hover {
-    transform: scale(1.15) translateX(var(--hover-translate, 0));
-  }
-
-  .side-icon-group::before,
-  .side-icon-group::after {
-    height: 35px;
-  }
-
-  .side-icon-group::before {
-    top: -40px;
-  }
-
-  .side-icon-group::after {
-    bottom: -40px;
-  }
-
-  .tooltip {
-    font-size: 0.8rem;
-    padding: 10px 15px;
-  }
-
-  .side-icons.left-side .tooltip {
-    right: 60px;
-  }
-
-  .side-icons.right-side .tooltip {
-    left: 60px;
-  }
-}
-
-/* Mobile devices */
-@media screen and (max-width: 768px) {
-  .side-icons {
+    right: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    gap: 14px;
     display: flex !important;
   }
 
-  .side-icons.left-side {
-    left: 15px;
-  }
-
-  .side-icons.right-side {
-    right: 15px;
-  }
-
   .side-icon-group {
-    gap: 20px;
+    flex-direction: column !important;
+    gap: 14px;
   }
 
   .side-icon {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(
-      135deg,
-      rgba(26, 42, 58, 0.9),
-      rgba(15, 32, 39, 0.9)
-    );
+    width: 32px !important;
+    height: 32px !important;
   }
 
   .side-icon ion-icon {
-    font-size: 1.1rem;
+    font-size: 16px !important;
   }
 
-  .side-icon:hover {
-    transform: scale(1.1) translateX(var(--hover-translate, 0));
-    box-shadow: 0 8px 20px rgba(0, 230, 184, 0.3),
-      0 0 0 6px rgba(0, 230, 184, 0.1);
-  }
-
+  /* Smaller connecting lines on mobile */
   .side-icon-group::before,
   .side-icon-group::after {
     height: 30px;
@@ -339,87 +162,27 @@ body.light-theme .side-icons.right-side .tooltip::before {
   .side-icon-group::after {
     bottom: -35px;
   }
-
-  .tooltip {
-    display: none; /* Hide tooltips on mobile for cleaner experience */
-  }
 }
 
-/* Small mobile devices */
-@media screen and (max-width: 480px) {
+/* ======================================================
+   💻 Larger Screens Refinement
+====================================================== */
+
+@media (min-width: 992px) {
   .side-icons.left-side {
-    left: 10px;
+    left: 40px !important;
   }
 
   .side-icons.right-side {
-    right: 10px;
-  }
-
-  .side-icon {
-    width: 35px;
-    height: 35px;
-  }
-
-  .side-icon ion-icon {
-    font-size: 1rem;
-  }
-
-  .side-icon-group {
-    gap: 15px;
-  }
-
-  .side-icon:hover {
-    transform: scale(1.08) translateX(var(--hover-translate, 0));
-  }
-
-  .side-icon-group::before,
-  .side-icon-group::after {
-    height: 25px;
-  }
-
-  .side-icon-group::before {
-    top: -30px;
-  }
-
-  .side-icon-group::after {
-    bottom: -30px;
+    right: 40px !important;
   }
 }
 
-/* Very small devices */
-@media screen and (max-width: 360px) {
-  .side-icons.left-side {
-    left: 8px;
-  }
-
-  .side-icons.right-side {
-    right: 8px;
-  }
-
-  .side-icon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .side-icon ion-icon {
-    font-size: 0.9rem;
-  }
-
+/* Prevent unwanted animations on touchscreen devices */
+@media (hover: none) and (pointer: coarse) {
   .side-icon:hover {
-    transform: scale(1.05) translateX(var(--hover-translate, 0));
-  }
-
-  .side-icon-group::before,
-  .side-icon-group::after {
-    height: 20px;
-  }
-
-  .side-icon-group::before {
-    top: -25px;
-  }
-
-  .side-icon-group::after {
-    bottom: -25px;
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.08) !important;
   }
 }
 
@@ -433,7 +196,7 @@ body.light-theme .side-icons.right-side .tooltip::before {
   top: 0;
   left: 0;
   z-index: 1000;
-  transition: background 0.6s ease;
+  transition: background 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .nav-content {
@@ -483,10 +246,6 @@ body.light-theme .side-icons.right-side .tooltip::before {
 
 .theme-toggle:hover {
   color: #00e6b8;
-}
-
-body.light-theme .theme-toggle {
-  color: #111;
 }
 
 /* ====== MOBILE TOPBAR ====== */
@@ -539,6 +298,7 @@ body.light-theme .theme-toggle {
   height: 70px;
   text-align: center;
   cursor: pointer;
+  transition: transform 0.25s ease;
 }
 
 .bottom-navigation .list .icon {
@@ -661,6 +421,19 @@ body.light-theme .bottom-navigation .indicator {
   border: 6px solid #f9f9f9;
 }
 
+body.light-theme .theme-toggle {
+  color: #111;
+}
+
+body.light-theme .side-icon {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .side-icon ion-icon {
+  color: #3a6073;
+}
+
 /* ====== MAIN CONTENT ====== */
 .main-content {
   padding: 1px 40px 100px;
@@ -681,6 +454,16 @@ body.light-theme .bottom-navigation .indicator {
 .hero-content {
   max-width: 600px;
   color: white;
+  transform: translateY(10px);
+  opacity: 0;
+  animation: heroIn 0.8s ease-out forwards;
+}
+
+@keyframes heroIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .hero-content h1 {
@@ -707,7 +490,7 @@ body.light-theme .bottom-navigation .indicator {
   color: #cfd8dc;
 }
 
-/* ====== HERO BUTTONS FIX ====== */
+/* ====== HERO BUTTONS ====== */
 .hero-buttons {
   display: flex;
   gap: 15px;
@@ -716,7 +499,6 @@ body.light-theme .bottom-navigation .indicator {
   align-items: center;
 }
 
-/* Center buttons on mobile */
 @media screen and (max-width: 768px) {
   .hero-buttons {
     justify-content: center;
@@ -733,11 +515,11 @@ body.light-theme .bottom-navigation .indicator {
   padding: 12px 25px;
   font-size: 1rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 999px;
   background: linear-gradient(to right, #00e6b8, #6e8efb);
   color: white;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
   display: inline-block;
   text-decoration: none;
   text-align: center;
@@ -751,7 +533,7 @@ body.light-theme .bottom-navigation .indicator {
 }
 
 .cta-button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.03);
   box-shadow: 0 6px 20px rgba(0, 230, 184, 0.3);
 }
 
@@ -764,6 +546,17 @@ body.light-theme .bottom-navigation .indicator {
   max-width: 350px;
   width: 100%;
   border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(10px) scale(0.97);
+  opacity: 0;
+  animation: heroImgIn 0.9s ease-out forwards;
+}
+
+@keyframes heroImgIn {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 /* ====== ABOUT SECTION ====== */
@@ -803,6 +596,13 @@ body.light-theme .bottom-navigation .indicator {
   max-width: 300px;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(0.98);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
 }
 
 .about-section p {
@@ -815,6 +615,14 @@ body.light-theme .bottom-navigation .indicator {
 
 body.light-theme .about-section p {
   color: #333;
+}
+
+body.light-theme .hero-content p {
+  color: #333;
+}
+
+body.light-theme .hero-content h2 {
+  color: #3a6073;
 }
 
 /* ====== SKILLS SECTION ====== */
@@ -844,19 +652,24 @@ body.light-theme .about-section p {
   border-radius: 16px;
   padding: 25px 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .skill-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
 }
 
 .skill-box ion-icon {
   font-size: 42px;
   margin-bottom: 15px;
   color: #00e6b8;
+  transition: transform 0.25s ease;
+}
+
+.skill-box:hover ion-icon {
+  transform: scale(1.08) translateY(-2px);
 }
 
 .skill-box h3 {
@@ -901,12 +714,12 @@ body.light-theme .skill-box h3 {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.6);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
 }
 
 .project-card img {
@@ -937,12 +750,13 @@ body.light-theme .skill-box h3 {
 .project-links a {
   color: #00e6b8;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
   text-decoration: none;
 }
 
 .project-links a:hover {
   color: #6e8efb;
+  transform: translateY(-1px);
 }
 
 body.light-theme .project-card {
@@ -1031,12 +845,12 @@ body.light-theme .project-links a {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   color: #fff;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .timeline-item .content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 }
 
 .timeline-item .content h3 {
@@ -1099,6 +913,7 @@ body.light-theme .timeline-item .content p {
     left: 40px;
     font-size: 0.8rem;
     padding: 3px 8px;
+    top: -10px;
   }
 
   .timeline-item .content {
@@ -1180,7 +995,7 @@ body.light-theme .timeline-item .content p {
   color: #fff;
   font-size: 1rem;
   outline: none;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
   width: 100%;
 }
@@ -1188,24 +1003,27 @@ body.light-theme .timeline-item .content p {
 .contact-form input:focus,
 .contact-form textarea:focus {
   background: linear-gradient(135deg, #203a43, #2c5364);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
 .contact-form button {
   padding: 14px;
   border: none;
-  border-radius: 10px;
+  border-radius: 999px;
   background: linear-gradient(to right, #00e6b8, #6e8efb);
   color: white;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: 0.25s ease;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .contact-form button:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
+  transform: translateY(-3px) scale(1.02);
+  opacity: 0.95;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
 }
 
 body.light-theme .contact-section p,
@@ -1278,15 +1096,6 @@ section {
   .bottom-navigation .indicator .icon {
     font-size: 1.1em;
   }
-}
-
-/* ====== HERO SECTION LIGHT THEME FIXES ====== */
-body.light-theme .hero-content p {
-  color: #333;
-}
-
-body.light-theme .hero-content h2 {
-  color: #3a6073;
 }
 
 /* ====== TABLET RESPONSIVENESS ====== */
@@ -1544,11 +1353,11 @@ body.light-theme .hero-content h2 {
 
   /* Side Icons Adjustments */
   .side-icons.left-side {
-    left: 20px;
+    left: 20px !important;
   }
 
   .side-icons.right-side {
-    right: 20px;
+    right: 20px !important;
   }
 
   .side-icon {
@@ -1653,11 +1462,11 @@ body.light-theme .hero-content h2 {
 
   /* Side Icons - Smaller */
   .side-icons.left-side {
-    left: 15px;
+    left: 15px !important;
   }
 
   .side-icons.right-side {
-    right: 15px;
+    right: 15px !important;
   }
 
   .side-icon {
@@ -1670,13 +1479,12 @@ body.light-theme .hero-content h2 {
   }
 }
 
-/* ====== DESKTOP / TABLET SPACING SYSTEM (no changes to mobile) ====== */
-/* Only applies for screens >= 769px so mobile view remains intact */
+/* ====== DESKTOP / TABLET SPACING SYSTEM ====== */
 @media screen and (min-width: 769px) {
   :root {
     --page-max-width: 1200px;
-    --gutter: 40px; /* main outer padding */
-    --gutter-sm: 28px; /* inner padding for medium screens */
+    --gutter: 40px;
+    --gutter-sm: 28px;
     --section-gap-lg: 92px;
     --section-gap: 64px;
     --section-gap-sm: 44px;
@@ -1684,8 +1492,7 @@ body.light-theme .hero-content h2 {
 
   /* Page container alignment */
   .main-content,
-  .nav-content,
-  .content-wrapper {
+  .nav-content {
     max-width: var(--page-max-width);
     margin-left: auto;
     margin-right: auto;
@@ -1697,8 +1504,7 @@ body.light-theme .hero-content h2 {
   /* reduce inner margin on medium tablets */
   @media (min-width: 769px) and (max-width: 1024px) {
     .main-content,
-    .nav-content,
-    .content-wrapper {
+    .nav-content {
       padding-left: var(--gutter-sm);
       padding-right: var(--gutter-sm);
     }
@@ -1722,7 +1528,7 @@ body.light-theme .hero-content h2 {
   .hero-section {
     padding-top: calc(var(--section-gap) - 8px);
     padding-bottom: calc(var(--section-gap) - 8px);
-    margin-top: 78px; /* keep room for fixed nav */
+    margin-top: 78px;
     gap: 40px;
     align-items: center;
   }
@@ -1730,6 +1536,7 @@ body.light-theme .hero-content h2 {
   .hero-content {
     max-width: 54%;
   }
+
   .hero-image {
     max-width: 40%;
   }
@@ -1739,10 +1546,12 @@ body.light-theme .hero-content h2 {
     line-height: 1.02;
     margin-bottom: 6px;
   }
+
   .hero-content h2 {
     font-size: 1.9rem;
     margin-bottom: 14px;
   }
+
   .hero-content p {
     font-size: 1.05rem;
     max-width: 72ch;
@@ -1753,6 +1562,7 @@ body.light-theme .hero-content h2 {
   .hero-buttons {
     gap: 18px;
   }
+
   .cta-button {
     padding: 14px 28px;
     font-size: 1rem;
@@ -1769,65 +1579,70 @@ body.light-theme .hero-content h2 {
     grid-template-columns: repeat(3, 1fr);
     max-width: 1100px;
   }
+
   .skills-grid {
     grid-template-columns: repeat(4, 1fr);
     max-width: 1100px;
   }
 
-  /* Move icons inward so they align with the page container.
-     Uses a responsive calculation based on the page max width and keeps a safe min/max. */
+  /* Side Icons positioning */
   .side-icons.left-side {
-    left: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
+    left: clamp(
+      28px,
+      calc((100% - var(--page-max-width)) / 2 + 16px),
+      80px
+    ) !important;
   }
+
   .side-icons.right-side {
-    right: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
-  }
-  .social-icons-vertical {
-    right: clamp(28px, calc((100% - var(--page-max-width)) / 2 + 16px), 80px);
+    right: clamp(
+      28px,
+      calc((100% - var(--page-max-width)) / 2 + 16px),
+      80px
+    ) !important;
   }
 
   /* Project cards and timeline spacing */
   .project-card {
     padding-bottom: 20px;
   }
+
   .timeline {
     padding: 8px 0;
     max-width: 900px;
   }
 
-  /* Footer and small polish */
-  footer {
-    padding-top: 48px;
-    padding-bottom: 48px;
-  }
-
   /* Use slightly larger base on desktop */
   @media (min-width: 1025px) {
-    html {
-      font-size: 100%;
-    } /* keep desktop default */
     :root {
       --gutter: 48px;
       --section-gap: 92px;
     }
+
     .hero-content h1 {
       font-size: 3.8rem;
     }
+
     .projects-grid {
       gap: 32px;
       grid-template-columns: repeat(3, 1fr);
+    }
+
+    .side-icons.left-side {
+      left: 40px !important;
+    }
+
+    .side-icons.right-side {
+      right: 40px !important;
     }
   }
 }
 
 /* ================================================
-   🔧 FIX: Mobile Double-Tap Issue
-   Disable Hover Animations & Tooltips on Mobile
-   Ensures first tap opens the link immediately.
-   ================================================ */
+   🔧 FIX: Mobile Double-Tap / Hover Issues
+================================================ */
 
 @media (hover: none) and (pointer: coarse) {
-  /* Disable hover visual animations on mobile */
   .side-icon:hover,
   .side-icon:focus {
     transform: none !important;
@@ -1840,11 +1655,17 @@ body.light-theme .hero-content h2 {
     color: inherit !important;
   }
 
-  /* Fully remove tooltip behavior on mobile */
   .tooltip {
     display: none !important;
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+
+  .contact-form button:hover,
+  .cta-button:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
   }
 }
 
@@ -1852,4 +1673,83 @@ body.light-theme .hero-content h2 {
 .side-icon {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* ================================================
+   ✅ EXTRA SAFETY RULES TO ENSURE ICONS STAY ON CORRECT SIDES
+================================================ */
+
+/* Ensure left icons stay on left */
+.side-icons.left-side {
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  right: auto !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+/* Ensure right icons stay on right */
+.side-icons.right-side {
+  justify-content: flex-start !important;
+  align-items: flex-end !important;
+  left: auto !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Ensure icon groups stay vertical */
+.side-icon-group {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* For tablets - ensure proper positioning */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .side-icons.left-side {
+    left: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  .side-icons.right-side {
+    right: 20px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+}
+
+/* === FIX SKILL BOX SIZE IN MOBILE VIEW === */
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 15px !important;
+    padding: 0 10px;
+  }
+
+  .skill-box {
+    width: 150px !important;
+    padding: 18px 10px !important;
+  }
+
+  .skill-box ion-icon {
+    font-size: 30px !important;
+  }
+
+  .skill-box h3 {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Ultra small screens (below 480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .skill-box {
+    width: 180px !important;
+    padding: 15px 6px !important;
+  }
 }
