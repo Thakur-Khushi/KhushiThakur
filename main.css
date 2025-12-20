@@ -1758,3 +1758,69 @@ section {
   width: 24px;
   height: 24px;
 }
+
+/* your existing CSS above */
+
+/* Ultra small screens (below 480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+/* ⬇⬇⬇ PASTE BELOW THIS LINE ⬇⬇⬇ */
+
+/* =========================================
+   ✅ MOBILE NAVIGATION FINAL FIX (ALL IN ONE)
+========================================= */
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+    padding-bottom: 70px;
+  }
+
+  .mobile-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
+  }
+
+  .bottom-navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    z-index: 1000;
+  }
+
+  .main-content {
+    padding-bottom: 90px !important;
+  }
+
+  .hero-section {
+    margin-top: 0 !important;
+    padding-top: 40px;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@supports (padding: env(safe-area-inset-bottom)) {
+  .bottom-navigation {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  body {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+}
