@@ -1824,3 +1824,31 @@ section {
     padding-bottom: calc(70px + env(safe-area-inset-bottom));
   }
 }
+
+/* =========================================
+   ✅ FIX: CENTER SKILL BOXES ON MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* single column */
+    justify-items: center; /* ⭐ CENTER ITEMS */
+    align-items: center;
+    gap: 16px;
+  }
+
+  .skill-box {
+    width: 90%; /* responsive width */
+    max-width: 280px; /* prevent too wide */
+    margin: 0 auto; /* extra safety */
+  }
+}
+
+/* Ultra-small phones */
+@media (max-width: 480px) {
+  .skill-box {
+    width: 95%;
+    max-width: 260px;
+  }
+}
