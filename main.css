@@ -1753,3 +1753,8 @@ section {
     padding: 15px 6px !important;
   }
 }
+
+.side-icon img {
+  width: 24px;
+  height: 24px;
+}
