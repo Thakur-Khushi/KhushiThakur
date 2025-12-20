@@ -1,4 +1,4 @@
-/* ====== GLOBAL RESET ====== */
+/* ====== GLOBAL RESET & BASE ====== */
 * {
   margin: 0;
   padding: 0;
@@ -17,11 +17,9 @@ body {
   transition: background 0.6s ease, color 0.6s ease;
 }
 
-/* ======================================================
-   ⭐ FIXED SIDE ICON SYSTEM - BOTH SIDES VISIBLE ON ALL DEVICES
-====================================================== */
-
-/* Common styles for both side icons */
+/* =========================================
+   ✅ SIDE ICONS SYSTEM
+========================================= */
 .side-icons {
   position: fixed;
   top: 50%;
@@ -33,17 +31,18 @@ body {
   transition: none !important;
 }
 
-/* Left side icons */
 .side-icons.left-side {
   left: 30px;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-/* Right side icons */
 .side-icons.right-side {
   right: 30px;
+  justify-content: flex-start;
+  align-items: flex-end;
 }
 
-/* Keep layout ALWAYS VERTICAL */
 .side-icon-group {
   display: flex;
   flex-direction: column;
@@ -52,7 +51,6 @@ body {
   align-items: center;
 }
 
-/* Connecting line for both sides */
 .side-icon-group::before,
 .side-icon-group::after {
   content: '';
@@ -72,7 +70,6 @@ body {
   bottom: -45px;
 }
 
-/* Icon Style */
 .side-icon {
   width: 45px;
   height: 45px;
@@ -87,116 +84,52 @@ body {
   cursor: pointer;
   box-shadow: none !important;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Icon symbol size */
 .side-icon ion-icon {
   font-size: 20px;
   color: #00e6b8;
   transition: none !important;
 }
 
-/* Remove hover effects */
-.side-icon:hover {
+.side-icon:hover,
+.side-icon:hover ion-icon {
   background: rgba(255, 255, 255, 0.08) !important;
   transform: none !important;
   box-shadow: none !important;
-}
-
-.side-icon:hover ion-icon {
   color: #00e6b8 !important;
-  transform: none !important;
 }
 
-/* Disable tooltip */
+.side-icon img {
+  width: 24px;
+  height: 24px;
+}
+
 .tooltip {
   display: none !important;
 }
 
-/* ======================================================
-   📱 MOBILE VERSION - BOTH SIDES VISIBLE
-====================================================== */
-
-@media (max-width: 768px) {
-  /* Left side icons on mobile */
-  .side-icons.left-side {
-    left: 10px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    gap: 14px;
-  }
-
-  /* Right side icons on mobile - SHOW BOTH SIDES */
-  .side-icons.right-side {
-    right: 10px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    gap: 14px;
-    display: flex !important;
-  }
-
-  .side-icon-group {
-    flex-direction: column !important;
-    gap: 14px;
-  }
-
-  .side-icon {
-    width: 32px !important;
-    height: 32px !important;
-  }
-
-  .side-icon ion-icon {
-    font-size: 16px !important;
-  }
-
-  /* Smaller connecting lines on mobile */
-  .side-icon-group::before,
-  .side-icon-group::after {
-    height: 30px;
-  }
-
-  .side-icon-group::before {
-    top: -35px;
-  }
-
-  .side-icon-group::after {
-    bottom: -35px;
-  }
-}
-
-/* ======================================================
-   💻 Larger Screens Refinement
-====================================================== */
-
-@media (min-width: 992px) {
-  .side-icons.left-side {
-    left: 40px !important;
-  }
-
-  .side-icons.right-side {
-    right: 40px !important;
-  }
-}
-
-/* Prevent unwanted animations on touchscreen devices */
-@media (hover: none) and (pointer: coarse) {
-  .side-icon:hover {
-    transform: none !important;
-    background: rgba(255, 255, 255, 0.08) !important;
-  }
-}
-
-/* ====== TOP NAVBAR (Tablet & Laptop) ====== */
-.top-navbar {
-  width: 100%;
+/* =========================================
+   ✅ NAVIGATION SYSTEMS
+========================================= */
+/* Common nav styles */
+.top-navbar,
+.mobile-topbar,
+.bottom-navigation {
   background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
   color: white;
-  padding: 20px 0;
   position: fixed;
+  z-index: 1000;
+  transition: background 0.6s ease;
+}
+
+/* Desktop/Top Nav */
+.top-navbar {
+  width: 100%;
+  padding: 20px 0;
   top: 0;
   left: 0;
-  z-index: 1000;
-  transition: background 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .nav-content {
@@ -208,7 +141,7 @@ body {
   align-items: center;
 }
 
-.nav-content .logo {
+.logo {
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -234,62 +167,37 @@ body {
   color: #00e6b8;
 }
 
-/* ====== THEME TOGGLE BUTTON ====== */
-.theme-toggle {
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.theme-toggle:hover {
-  color: #00e6b8;
-}
-
-/* ====== MOBILE TOPBAR ====== */
+/* Mobile Topbar */
 .mobile-topbar {
   display: none;
   padding: 15px 20px;
-  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-  color: white;
   font-size: 1.2rem;
   font-weight: bold;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-.mobile-topbar .theme-toggle {
-  font-size: 1.3rem;
-}
-
-/* ====== BOTTOM NAVIGATION (Mobile) ====== */
+/* Bottom Navigation (Mobile) */
 .bottom-navigation {
-  position: fixed;
+  display: none;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 70px;
+  border-radius: 20px 20px 0 0;
+  justify-content: space-around;
+  align-items: center;
+  backdrop-filter: blur(10px);
   background: linear-gradient(
     90deg,
     rgba(15, 32, 39, 0.95),
     rgba(44, 83, 100, 0.95)
   );
-  backdrop-filter: blur(10px);
-  border-radius: 20px 20px 0 0;
-  display: none;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 999;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-  transition: background 0.6s ease;
 }
 
 .bottom-navigation .list {
@@ -322,7 +230,6 @@ body {
 .bottom-navigation .list.active .text {
   opacity: 1;
 }
-
 .bottom-navigation .list.active .icon {
   opacity: 0;
 }
@@ -348,100 +255,50 @@ body {
   color: white;
 }
 
-/* ====== RESPONSIVENESS ====== */
-@media screen and (max-width: 768px) {
-  .top-navbar {
-    display: none;
-  }
-
-  .mobile-topbar {
-    display: flex;
-  }
-
-  .bottom-navigation {
-    display: flex;
-  }
-
-  .hero-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
-    margin-top: 60px;
-  }
-
-  .hero-content {
-    order: 2;
-    margin-top: 30px;
-  }
-
-  .hero-image {
-    order: 1;
-    margin-top: 20px;
-  }
+/* Theme Toggle */
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-/* ====== LIGHT THEME SUPPORT ====== */
-body.light-theme {
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  color: #111;
+.theme-toggle:hover {
+  color: #00e6b8;
 }
 
-body.light-theme .top-navbar,
-body.light-theme .mobile-topbar {
-  background: linear-gradient(90deg, #e0eafc, #cfdef3);
-  color: #111;
-}
-
-body.light-theme .nav-content ul li a,
-body.light-theme .mobile-topbar .theme-toggle {
-  color: #111;
-}
-
-body.light-theme .nav-content ul li a:hover,
-body.light-theme .nav-content ul li a.active {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #3a6073;
-}
-
-body.light-theme .bottom-navigation {
-  background: linear-gradient(
-    90deg,
-    rgba(224, 234, 252, 0.95),
-    rgba(207, 222, 243, 0.95)
-  );
-}
-
-body.light-theme .bottom-navigation .list .text,
-body.light-theme .bottom-navigation .list .icon {
-  color: black;
-}
-
-body.light-theme .bottom-navigation .indicator {
-  background: linear-gradient(to right, #3a6073, #6e8efb);
-  border: 6px solid #f9f9f9;
-}
-
-body.light-theme .theme-toggle {
-  color: #111;
-}
-
-body.light-theme .side-icon {
-  background: rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.15);
-}
-
-body.light-theme .side-icon ion-icon {
-  color: #3a6073;
-}
-
-/* ====== MAIN CONTENT ====== */
+/* =========================================
+   ✅ MAIN CONTENT & SECTIONS
+========================================= */
 .main-content {
   padding: 1px 40px 100px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* ====== HERO SECTION ====== */
+section {
+  scroll-margin-top: 120px;
+}
+
+/* Section Headers */
+.about-section h2,
+.skills-section h2,
+.projects-section h2,
+.education-section h2,
+.contact-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+/* =========================================
+   ✅ HERO SECTION
+========================================= */
 .hero-section {
   display: flex;
   justify-content: space-between;
@@ -490,7 +347,6 @@ body.light-theme .side-icon ion-icon {
   color: #cfd8dc;
 }
 
-/* ====== HERO BUTTONS ====== */
 .hero-buttons {
   display: flex;
   gap: 15px;
@@ -499,18 +355,26 @@ body.light-theme .side-icon ion-icon {
   align-items: center;
 }
 
-@media screen and (max-width: 768px) {
-  .hero-buttons {
-    justify-content: center;
-    gap: 12px;
-  }
+.hero-image img {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  transform: translateY(10px) scale(0.97);
+  opacity: 0;
+  animation: heroImgIn 0.9s ease-out forwards;
+}
 
-  .cta-button {
-    flex: 0 1 auto;
-    min-width: 140px;
+@keyframes heroImgIn {
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
   }
 }
 
+/* =========================================
+   ✅ BUTTONS
+========================================= */
 .cta-button {
   padding: 12px 25px;
   font-size: 1rem;
@@ -542,35 +406,12 @@ body.light-theme .side-icon ion-icon {
   color: white;
 }
 
-.hero-image img {
-  max-width: 350px;
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  transform: translateY(10px) scale(0.97);
-  opacity: 0;
-  animation: heroImgIn 0.9s ease-out forwards;
-}
-
-@keyframes heroImgIn {
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-
-/* ====== ABOUT SECTION ====== */
+/* =========================================
+   ✅ ABOUT SECTION
+========================================= */
 .about-section {
   padding: 80px 20px;
   text-align: center;
-}
-
-.about-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .about-content {
@@ -613,30 +454,12 @@ body.light-theme .side-icon ion-icon {
   color: #cfd8dc;
 }
 
-body.light-theme .about-section p {
-  color: #333;
-}
-
-body.light-theme .hero-content p {
-  color: #333;
-}
-
-body.light-theme .hero-content h2 {
-  color: #3a6073;
-}
-
-/* ====== SKILLS SECTION ====== */
+/* =========================================
+   ✅ SKILLS SECTION
+========================================= */
 .skills-section {
   padding: 60px 20px;
   text-align: center;
-}
-
-.skills-section h2 {
-  font-size: 2rem;
-  margin-bottom: 40px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .skills-grid {
@@ -678,27 +501,12 @@ body.light-theme .hero-content h2 {
   color: #fff;
 }
 
-body.light-theme .skill-box {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-body.light-theme .skill-box h3 {
-  color: #111;
-}
-
-/* ===== PROJECTS SECTION ===== */
+/* =========================================
+   ✅ PROJECTS SECTION
+========================================= */
 .projects-section {
   padding: 80px 20px;
   text-align: center;
-}
-
-.projects-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .projects-grid {
@@ -759,34 +567,12 @@ body.light-theme .skill-box h3 {
   transform: translateY(-1px);
 }
 
-body.light-theme .project-card {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-}
-
-body.light-theme .project-card h3 {
-  color: #111;
-}
-
-body.light-theme .project-card p {
-  color: #333;
-}
-
-body.light-theme .project-links a {
-  color: #3a6073;
-}
-
-/* ===== EDUCATION SECTION ===== */
+/* =========================================
+   ✅ EDUCATION SECTION
+========================================= */
 .education-section {
   padding: 80px 20px;
   text-align: center;
-}
-
-.education-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 40px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .timeline {
@@ -864,105 +650,12 @@ body.light-theme .project-links a {
   line-height: 1.6;
 }
 
-/* Light theme support */
-body.light-theme .timeline::before {
-  background: #3a6073;
-}
-
-body.light-theme .timeline-item .content {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-  color: #111;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .timeline-item .content:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-body.light-theme .timeline-item .date {
-  color: #3a6073;
-  background: rgba(224, 234, 252, 0.8);
-}
-
-body.light-theme .timeline-item .content h3 {
-  color: #3a6073;
-}
-
-body.light-theme .timeline-item .content p {
-  color: #333;
-}
-
-/* Mobile responsiveness for timeline */
-@media screen and (max-width: 768px) {
-  .timeline::before {
-    left: 20px;
-  }
-
-  .timeline-item {
-    padding-left: 60px;
-    margin-bottom: 40px;
-  }
-
-  .timeline-item::before {
-    left: 8px;
-    width: 20px;
-    height: 20px;
-  }
-
-  .timeline-item .date {
-    left: 40px;
-    font-size: 0.8rem;
-    padding: 3px 8px;
-    top: -10px;
-  }
-
-  .timeline-item .content {
-    padding: 15px 20px;
-  }
-
-  .timeline-item .content h3 {
-    font-size: 1.1rem;
-  }
-}
-
-/* Very small screens */
-@media screen and (max-width: 480px) {
-  .timeline::before {
-    left: 15px;
-  }
-
-  .timeline-item {
-    padding-left: 50px;
-  }
-
-  .timeline-item::before {
-    left: 5px;
-    width: 18px;
-    height: 18px;
-  }
-
-  .timeline-item .date {
-    left: 30px;
-    font-size: 0.75rem;
-  }
-
-  .timeline-item .content {
-    padding: 12px 15px;
-  }
-}
-
-/* ===== CONTACT SECTION ===== */
+/* =========================================
+   ✅ CONTACT SECTION
+========================================= */
 .contact-section {
   padding: 80px 20px;
   text-align: center;
-}
-
-.contact-section h2 {
-  font-size: 2.2rem;
-  margin-bottom: 25px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .contact-section p {
@@ -1026,9 +719,109 @@ body.light-theme .timeline-item .content p {
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
 }
 
+/* =========================================
+   ✅ LIGHT THEME
+========================================= */
+body.light-theme {
+  background: linear-gradient(135deg, #e0eafc, #cfdef3);
+  color: #111;
+}
+
+body.light-theme .top-navbar,
+body.light-theme .mobile-topbar,
+body.light-theme .bottom-navigation {
+  background: linear-gradient(90deg, #e0eafc, #cfdef3);
+  color: #111;
+}
+
+body.light-theme .nav-content ul li a,
+body.light-theme .mobile-topbar .theme-toggle,
+body.light-theme .theme-toggle,
+body.light-theme .bottom-navigation .list .text,
+body.light-theme .bottom-navigation .list .icon {
+  color: #111;
+}
+
+body.light-theme .nav-content ul li a:hover,
+body.light-theme .nav-content ul li a.active {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #3a6073;
+}
+
+body.light-theme .bottom-navigation {
+  background: linear-gradient(
+    90deg,
+    rgba(224, 234, 252, 0.95),
+    rgba(207, 222, 243, 0.95)
+  );
+}
+
+body.light-theme .bottom-navigation .indicator {
+  background: linear-gradient(to right, #3a6073, #6e8efb);
+  border: 6px solid #f9f9f9;
+}
+
+body.light-theme .side-icon {
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .side-icon ion-icon {
+  color: #3a6073;
+}
+
+body.light-theme .hero-content h2 {
+  color: #3a6073;
+}
+
+body.light-theme .hero-content p,
+body.light-theme .about-section p,
 body.light-theme .contact-section p,
-body.light-theme .contact-info {
+body.light-theme .contact-info,
+body.light-theme .timeline-item .content p,
+body.light-theme .project-card p {
   color: #333;
+}
+
+body.light-theme .skill-box {
+  background: linear-gradient(135deg, #ffffff, #e0eafc);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .skill-box h3,
+body.light-theme .project-card h3 {
+  color: #111;
+}
+
+body.light-theme .project-card {
+  background: linear-gradient(135deg, #ffffff, #e0eafc);
+}
+
+body.light-theme .project-links a {
+  color: #3a6073;
+}
+
+body.light-theme .timeline::before {
+  background: #3a6073;
+}
+
+body.light-theme .timeline-item .content {
+  background: linear-gradient(135deg, #ffffff, #e0eafc);
+  color: #111;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .timeline-item .content:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .timeline-item .date {
+  color: #3a6073;
+  background: rgba(224, 234, 252, 0.8);
+}
+
+body.light-theme .timeline-item .content h3 {
+  color: #3a6073;
 }
 
 body.light-theme .contact-form input,
@@ -1047,30 +840,49 @@ body.light-theme .contact-form button {
   background: linear-gradient(to right, #3a6073, #6e8efb);
 }
 
-/* ====== FIX: Section headings not hiding behind navbar ====== */
-section {
-  scroll-margin-top: 120px;
-}
+/* =========================================
+   ✅ RESPONSIVE DESIGN
+========================================= */
 
-/* ====== FIX PROJECT CARDS IN MOBILE ====== */
-@media screen and (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+/* ====== MOBILE (≤768px) ====== */
+@media (max-width: 768px) {
+  /* Layout */
+  body {
+    padding-top: 60px;
+    padding-bottom: 70px;
   }
 
-  .project-card {
-    margin: 0 auto;
-    max-width: 90%;
+  /* Navigation */
+  .top-navbar {
+    display: none;
   }
-}
-
-/* ====== FIX BOTTOM NAV INDICATOR SIZE ====== */
-@media screen and (max-width: 768px) {
+  .mobile-topbar {
+    display: flex;
+  }
   .bottom-navigation {
+    display: flex;
+  }
+
+  .mobile-topbar,
+  .bottom-navigation {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .mobile-topbar {
+    top: 0;
+    left: 0;
     height: 60px;
   }
 
+  .bottom-navigation {
+    bottom: 0;
+    left: 0;
+    height: 70px;
+  }
+
+  /* Bottom Nav Adjustments */
   .bottom-navigation .list {
     width: 45px;
     height: 60px;
@@ -1096,41 +908,235 @@ section {
   .bottom-navigation .indicator .icon {
     font-size: 1.1em;
   }
-}
 
-/* ====== TABLET RESPONSIVENESS ====== */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-  /* Main content adjustments */
-  .main-content {
-    padding: 1px 30px 80px;
-    max-width: 100%;
+  /* Side Icons */
+  .side-icons.left-side {
+    left: 10px !important;
+    gap: 14px;
   }
 
-  /* Keep top navigation same as laptop */
+  .side-icons.right-side {
+    right: 10px !important;
+    gap: 14px;
+    display: flex !important;
+  }
+
+  .side-icon-group {
+    gap: 14px;
+  }
+
+  .side-icon {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  .side-icon ion-icon {
+    font-size: 16px !important;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 30px;
+  }
+
+  .side-icon-group::before {
+    top: -35px;
+  }
+  .side-icon-group::after {
+    bottom: -35px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 0 !important;
+    padding-top: 40px;
+  }
+
+  .hero-content {
+    order: 2;
+    margin-top: 30px;
+  }
+
+  .hero-image {
+    order: 1;
+    margin-top: 20px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .cta-button {
+    flex: 0 1 auto;
+    min-width: 140px;
+  }
+
+  /* Skills Grid */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 16px;
+    padding: 0 10px;
+  }
+
+  .skill-box {
+    width: 90%;
+    max-width: 280px;
+    padding: 18px 10px;
+  }
+
+  .skill-box ion-icon {
+    font-size: 30px !important;
+  }
+
+  .skill-box h3 {
+    font-size: 0.9rem !important;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .project-card {
+    margin: 0 auto;
+    max-width: 90%;
+  }
+
+  /* Timeline */
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    padding-left: 60px;
+    margin-bottom: 40px;
+  }
+
+  .timeline-item::before {
+    left: 8px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .timeline-item .date {
+    left: 40px;
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    top: -10px;
+  }
+
+  .timeline-item .content {
+    padding: 15px 20px;
+  }
+
+  .timeline-item .content h3 {
+    font-size: 1.1rem;
+  }
+
+  /* Main Content */
+  .main-content {
+    padding: 1px 20px 90px !important;
+  }
+
+  /* Safe Area Support */
+  @supports (padding: env(safe-area-inset-bottom)) {
+    .bottom-navigation {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    body {
+      padding-bottom: calc(70px + env(safe-area-inset-bottom));
+    }
+  }
+}
+
+/* Ultra Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .skill-box {
+    width: 95%;
+    max-width: 260px;
+    padding: 15px 6px !important;
+  }
+
+  .timeline::before {
+    left: 15px;
+  }
+
+  .timeline-item {
+    padding-left: 50px;
+  }
+
+  .timeline-item::before {
+    left: 5px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-item .date {
+    left: 30px;
+    font-size: 0.75rem;
+  }
+
+  .timeline-item .content {
+    padding: 12px 15px;
+  }
+}
+
+/* ====== TABLET (769px - 1024px) ====== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Root Variables */
+  :root {
+    --page-max-width: 1200px;
+    --gutter: 40px;
+    --gutter-sm: 28px;
+    --section-gap: 64px;
+    --section-gap-sm: 44px;
+  }
+
+  /* Layout */
   .top-navbar {
     display: block;
   }
-
   .mobile-topbar,
   .bottom-navigation {
     display: none;
   }
 
+  .main-content,
   .nav-content {
-    padding: 0 30px;
-    max-width: 100%;
+    max-width: var(--page-max-width);
+    margin: 0 auto;
+    padding-left: var(--gutter-sm);
+    padding-right: var(--gutter-sm);
   }
 
+  section {
+    padding-top: var(--section-gap-sm);
+    padding-bottom: var(--section-gap-sm);
+  }
+
+  /* Navigation */
   .nav-content ul {
     gap: 25px;
   }
-
   .nav-content ul li a {
     font-size: 0.9rem;
     padding: 6px 10px;
   }
 
-  /* Compact Hero Section */
+  /* Hero */
   .hero-section {
     padding: 80px 30px 60px;
     margin-top: 70px;
@@ -1169,55 +1175,46 @@ section {
   .hero-buttons {
     gap: 12px;
   }
-
   .cta-button {
     padding: 10px 20px;
     font-size: 0.9rem;
   }
 
-  /* Compact About Section */
+  /* About */
   .about-section {
     padding: 60px 30px;
   }
-
   .about-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
-
   .about-content {
     gap: 30px;
     margin-top: 20px;
   }
-
   .about-text {
     flex: 1 1 300px;
   }
-
   .about-text p {
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 10px 0;
   }
-
   .about-image {
     flex: 1 1 250px;
   }
-
   .about-image img {
     max-width: 220px;
   }
 
-  /* Compact Skills Section */
+  /* Skills */
   .skills-section {
     padding: 60px 30px;
   }
-
   .skills-section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -1233,21 +1230,18 @@ section {
     font-size: 2.5rem;
     margin-bottom: 12px;
   }
-
   .skill-box h3 {
     font-size: 1.1rem;
   }
 
-  /* Compact Projects Section */
+  /* Projects */
   .projects-section {
     padding: 60px 30px;
   }
-
   .projects-section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -1257,81 +1251,67 @@ section {
   .project-card {
     border-radius: 12px;
   }
-
   .project-card img {
     height: 140px;
   }
-
   .project-card h3 {
     font-size: 1.2rem;
     margin: 12px 0 8px;
   }
-
   .project-card p {
     font-size: 0.9rem;
     margin-bottom: 12px;
     line-height: 1.4;
   }
-
   .project-links {
     padding: 12px 15px;
   }
 
-  /* Compact Education Section */
+  /* Education */
   .education-section {
     padding: 60px 30px;
   }
-
   .education-section h2 {
     font-size: 2rem;
     margin-bottom: 30px;
   }
-
   .timeline {
     max-width: 100%;
     padding: 15px 0;
   }
-
   .timeline-item {
     margin-bottom: 30px;
     padding-left: 70px;
   }
-
   .timeline-item .content {
     padding: 18px 20px;
     border-radius: 10px;
   }
-
   .timeline-item .content h3 {
     font-size: 1.2rem;
     margin-bottom: 6px;
   }
-
   .timeline-item .content p {
     font-size: 0.9rem;
     line-height: 1.4;
   }
 
-  /* Compact Contact Section */
+  /* Contact */
   .contact-section {
     padding: 60px 30px;
   }
-
   .contact-section h2 {
     font-size: 2rem;
     margin-bottom: 20px;
   }
-
   .contact-section p {
     font-size: 0.95rem;
     margin-bottom: 15px;
   }
-
   .contact-info {
     margin: 15px auto;
     font-size: 0.95rem;
   }
-
   .contact-form {
     max-width: 500px;
     margin: 25px auto 0;
@@ -1351,73 +1331,59 @@ section {
     border-radius: 8px;
   }
 
-  /* Side Icons Adjustments */
+  /* Side Icons */
   .side-icons.left-side {
     left: 20px !important;
   }
-
   .side-icons.right-side {
     right: 20px !important;
   }
-
   .side-icon {
     width: 42px;
     height: 42px;
   }
-
   .side-icon ion-icon {
     font-size: 1.2rem;
   }
-
   .side-icon-group {
     gap: 20px;
   }
-
   .side-icon-group::before,
   .side-icon-group::after {
     height: 30px;
   }
-
   .side-icon-group::before {
     top: -35px;
   }
-
   .side-icon-group::after {
     bottom: -35px;
   }
 
-  /* Section spacing */
+  /* Section Spacing */
   section {
     scroll-margin-top: 90px;
   }
-
-  /* Reduce overall font size for compactness */
   body {
     font-size: 14px;
   }
 }
 
-/* ====== SMALL TABLET (768px - 901px) ====== */
-@media screen and (max-width: 900px) and (min-width: 769px) {
-  /* Even more compact layout for smaller tablets */
+/* Small Tablet (769px - 900px) */
+@media (min-width: 769px) and (max-width: 900px) {
   .main-content {
     padding: 1px 25px 70px;
   }
-
   .nav-content {
     padding: 0 25px;
   }
-
   .nav-content ul {
     gap: 20px;
   }
-
   .nav-content ul li a {
     font-size: 0.85rem;
     padding: 5px 8px;
   }
 
-  /* Compact Hero */
   .hero-section {
     padding: 70px 25px 50px;
     margin-top: 60px;
@@ -1427,16 +1393,13 @@ section {
   .hero-content h1 {
     font-size: 2.1rem;
   }
-
   .hero-content h2 {
     font-size: 1.3rem;
   }
-
   .hero-image img {
     max-width: 250px;
   }
 
-  /* Compact Skills Grid */
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
@@ -1449,205 +1412,65 @@ section {
   .skill-box ion-icon {
     font-size: 2.2rem;
   }
-
-  /* Compact Projects Grid */
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
-
   .project-card img {
     height: 130px;
   }
 
-  /* Side Icons - Smaller */
   .side-icons.left-side {
     left: 15px !important;
   }
-
   .side-icons.right-side {
     right: 15px !important;
   }
-
   .side-icon {
     width: 38px;
     height: 38px;
   }
-
   .side-icon ion-icon {
     font-size: 1.1rem;
   }
 }
 
-/* ====== DESKTOP / TABLET SPACING SYSTEM ====== */
-@media screen and (min-width: 769px) {
+/* ====== DESKTOP (>1024px) ====== */
+@media (min-width: 1025px) {
   :root {
-    --page-max-width: 1200px;
-    --gutter: 40px;
-    --gutter-sm: 28px;
-    --section-gap-lg: 92px;
-    --section-gap: 64px;
-    --section-gap-sm: 44px;
-  }
-
-  /* Page container alignment */
-  .main-content,
-  .nav-content {
-    max-width: var(--page-max-width);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: var(--gutter);
-    padding-right: var(--gutter);
-    box-sizing: border-box;
-  }
-
-  /* reduce inner margin on medium tablets */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    .main-content,
-    .nav-content {
-      padding-left: var(--gutter-sm);
-      padding-right: var(--gutter-sm);
-    }
-  }
-
-  /* Section spacing */
-  section {
-    padding-top: var(--section-gap);
-    padding-bottom: var(--section-gap);
-  }
-
-  /* Slightly tighter spacing for medium tablets */
-  @media (min-width: 769px) and (max-width: 1024px) {
-    section {
-      padding-top: var(--section-gap-sm);
-      padding-bottom: var(--section-gap-sm);
-    }
-  }
-
-  /* HERO adjustments (desktop/tablet) */
-  .hero-section {
-    padding-top: calc(var(--section-gap) - 8px);
-    padding-bottom: calc(var(--section-gap) - 8px);
-    margin-top: 78px;
-    gap: 40px;
-    align-items: center;
-  }
-
-  .hero-content {
-    max-width: 54%;
-  }
-
-  .hero-image {
-    max-width: 40%;
+    --gutter: 48px;
+    --section-gap: 92px;
   }
 
   .hero-content h1 {
-    font-size: 3.4rem;
-    line-height: 1.02;
-    margin-bottom: 6px;
-  }
-
-  .hero-content h2 {
-    font-size: 1.9rem;
-    margin-bottom: 14px;
-  }
-
-  .hero-content p {
-    font-size: 1.05rem;
-    max-width: 72ch;
-    color: inherit;
-  }
-
-  /* Buttons */
-  .hero-buttons {
-    gap: 18px;
-  }
-
-  .cta-button {
-    padding: 14px 28px;
-    font-size: 1rem;
-  }
-
-  /* Content columns for major sections */
-  .about-content,
-  .projects-grid,
-  .skills-grid {
-    gap: 28px;
+    font-size: 3.8rem;
   }
 
   .projects-grid {
+    gap: 32px;
     grid-template-columns: repeat(3, 1fr);
-    max-width: 1100px;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1100px;
-  }
-
-  /* Side Icons positioning */
   .side-icons.left-side {
-    left: clamp(
-      28px,
-      calc((100% - var(--page-max-width)) / 2 + 16px),
-      80px
-    ) !important;
+    left: 40px !important;
   }
-
   .side-icons.right-side {
-    right: clamp(
-      28px,
-      calc((100% - var(--page-max-width)) / 2 + 16px),
-      80px
-    ) !important;
-  }
-
-  /* Project cards and timeline spacing */
-  .project-card {
-    padding-bottom: 20px;
-  }
-
-  .timeline {
-    padding: 8px 0;
-    max-width: 900px;
-  }
-
-  /* Use slightly larger base on desktop */
-  @media (min-width: 1025px) {
-    :root {
-      --gutter: 48px;
-      --section-gap: 92px;
-    }
-
-    .hero-content h1 {
-      font-size: 3.8rem;
-    }
-
-    .projects-grid {
-      gap: 32px;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .side-icons.left-side {
-      left: 40px !important;
-    }
-
-    .side-icons.right-side {
-      right: 40px !important;
-    }
+    right: 40px !important;
   }
 }
 
-/* ================================================
-   🔧 FIX: Mobile Double-Tap / Hover Issues
-================================================ */
-
+/* =========================================
+   ✅ TOUCH DEVICE FIXES
+========================================= */
 @media (hover: none) and (pointer: coarse) {
   .side-icon:hover,
-  .side-icon:focus {
+  .side-icon:focus,
+  .contact-form button:hover,
+  .cta-button:hover {
     transform: none !important;
     box-shadow: none !important;
     background: inherit !important;
+    opacity: 1 !important;
   }
 
   .side-icon:hover ion-icon {
@@ -1660,195 +1483,14 @@ section {
     opacity: 0 !important;
     pointer-events: none !important;
   }
-
-  .contact-form button:hover,
-  .cta-button:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    opacity: 1 !important;
-  }
 }
 
-/* Improve mobile tap feeling */
-.side-icon {
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* ================================================
-   ✅ EXTRA SAFETY RULES TO ENSURE ICONS STAY ON CORRECT SIDES
-================================================ */
-
-/* Ensure left icons stay on left */
-.side-icons.left-side {
-  justify-content: flex-start !important;
-  align-items: flex-start !important;
-  right: auto !important;
-  margin-left: 0 !important;
-  margin-right: auto !important;
-}
-
-/* Ensure right icons stay on right */
-.side-icons.right-side {
-  justify-content: flex-start !important;
-  align-items: flex-end !important;
-  left: auto !important;
-  margin-left: auto !important;
-  margin-right: 0 !important;
-}
-
-/* Ensure icon groups stay vertical */
-.side-icon-group {
-  flex-direction: column !important;
-  align-items: center !important;
-}
-
-/* For tablets - ensure proper positioning */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
+/* Larger Screens Refinement */
+@media (min-width: 992px) {
   .side-icons.left-side {
-    left: 20px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    left: 40px !important;
   }
-
   .side-icons.right-side {
-    right: 20px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-  }
-}
-
-/* === FIX SKILL BOX SIZE IN MOBILE VIEW === */
-
-@media (max-width: 768px) {
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 15px !important;
-    padding: 0 10px;
-  }
-
-  .skill-box {
-    width: 150px !important;
-    padding: 18px 10px !important;
-  }
-
-  .skill-box ion-icon {
-    font-size: 30px !important;
-  }
-
-  .skill-box h3 {
-    font-size: 0.9rem !important;
-  }
-}
-
-/* Ultra small screens (below 480px) */
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(1, 1fr) !important;
-    gap: 12px !important;
-  }
-
-  .skill-box {
-    width: 180px !important;
-    padding: 15px 6px !important;
-  }
-}
-
-.side-icon img {
-  width: 24px;
-  height: 24px;
-}
-
-/* your existing CSS above */
-
-/* Ultra small screens (below 480px) */
-@media (max-width: 480px) {
-  .skills-grid {
-    grid-template-columns: repeat(1, 1fr) !important;
-    gap: 12px !important;
-  }
-}
-
-/* ⬇⬇⬇ PASTE BELOW THIS LINE ⬇⬇⬇ */
-
-/* =========================================
-   ✅ MOBILE NAVIGATION FINAL FIX (ALL IN ONE)
-========================================= */
-
-@media (max-width: 768px) {
-  body {
-    padding-top: 60px;
-    padding-bottom: 70px;
-  }
-
-  .mobile-topbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 1000;
-  }
-
-  .bottom-navigation {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    z-index: 1000;
-  }
-
-  .main-content {
-    padding-bottom: 90px !important;
-  }
-
-  .hero-section {
-    margin-top: 0 !important;
-    padding-top: 40px;
-  }
-
-  html,
-  body {
-    overflow-x: hidden;
-  }
-}
-
-@supports (padding: env(safe-area-inset-bottom)) {
-  .bottom-navigation {
-    padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  body {
-    padding-bottom: calc(70px + env(safe-area-inset-bottom));
-  }
-}
-
-/* =========================================
-   ✅ FIX: CENTER SKILL BOXES ON MOBILE
-========================================= */
-
-@media (max-width: 768px) {
-  .skills-grid {
-    display: grid;
-    grid-template-columns: 1fr; /* single column */
-    justify-items: center; /* ⭐ CENTER ITEMS */
-    align-items: center;
-    gap: 16px;
-  }
-
-  .skill-box {
-    width: 90%; /* responsive width */
-    max-width: 280px; /* prevent too wide */
-    margin: 0 auto; /* extra safety */
-  }
-}
-
-/* Ultra-small phones */
-@media (max-width: 480px) {
-  .skill-box {
-    width: 95%;
-    max-width: 260px;
+    right: 40px !important;
   }
 }
