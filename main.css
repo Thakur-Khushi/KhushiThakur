@@ -11,9 +11,9 @@ html {
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #0f2027, #2c5364);
+  background: linear-gradient(135deg, #121212, #1e1e1e);
   min-height: 100vh;
-  color: white;
+  color: #e0e0e0;
   transition: background 0.6s ease, color 0.6s ease;
 }
 
@@ -56,7 +56,7 @@ body {
   content: '';
   width: 2px;
   height: 40px;
-  background: linear-gradient(to bottom, #00e6b8, #6e8efb);
+  background: linear-gradient(to bottom, #2962ff, #0039cb);
   border-radius: 1px;
   position: absolute;
   left: 50%;
@@ -89,16 +89,16 @@ body {
 
 .side-icon ion-icon {
   font-size: 20px;
-  color: #00e6b8;
+  color: #2962ff;
   transition: none !important;
 }
 
 .side-icon:hover,
 .side-icon:hover ion-icon {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(41, 98, 255, 0.2) !important;
   transform: none !important;
   box-shadow: none !important;
-  color: #00e6b8 !important;
+  color: #ffffff !important;
 }
 
 .side-icon img {
@@ -117,8 +117,8 @@ body {
 .top-navbar,
 .mobile-topbar,
 .bottom-navigation {
-  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
-  color: white;
+  background: linear-gradient(90deg, #121212, #212121, #303030);
+  color: #ffffff;
   position: fixed;
   z-index: 1000;
   transition: background 0.6s ease;
@@ -144,6 +144,7 @@ body {
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .nav-content ul {
@@ -154,7 +155,7 @@ body {
 
 .nav-content ul li a {
   text-decoration: none;
-  color: white;
+  color: #e0e0e0;
   font-weight: 600;
   transition: 0.3s;
   padding: 8px 12px;
@@ -163,8 +164,8 @@ body {
 
 .nav-content ul li a:hover,
 .nav-content ul li a.active {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #00e6b8;
+  background-color: rgba(41, 98, 255, 0.15);
+  color: #2962ff;
 }
 
 /* Mobile Topbar */
@@ -178,7 +179,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Bottom Navigation (Mobile) */
@@ -194,10 +195,10 @@ body {
   backdrop-filter: blur(10px);
   background: linear-gradient(
     90deg,
-    rgba(15, 32, 39, 0.95),
-    rgba(44, 83, 100, 0.95)
+    rgba(18, 18, 18, 0.95),
+    rgba(33, 33, 33, 0.95)
   );
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .bottom-navigation .list {
@@ -212,13 +213,13 @@ body {
 .bottom-navigation .list .icon {
   font-size: 1.5em;
   line-height: 70px;
-  color: white;
+  color: #ffffff;
   transition: 0.3s ease;
 }
 
 .bottom-navigation .list .text {
   font-size: 0.7em;
-  color: white;
+  color: #ffffff;
   position: absolute;
   bottom: 5px;
   left: 50%;
@@ -239,9 +240,9 @@ body {
   top: -28px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  background: linear-gradient(to right, #2962ff, #0039cb);
   border-radius: 50%;
-  border: 6px solid #0f2027;
+  border: 6px solid #121212;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,7 +253,7 @@ body {
 
 .bottom-navigation .indicator .icon {
   font-size: 1.5em;
-  color: white;
+  color: #ffffff;
 }
 
 /* Theme Toggle */
@@ -260,13 +261,13 @@ body {
   background: none;
   border: none;
   font-size: 1.3rem;
-  color: white;
+  color: #ffffff;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .theme-toggle:hover {
-  color: #00e6b8;
+  color: #2962ff;
 }
 
 /* =========================================
@@ -290,7 +291,7 @@ section {
 .contact-section h2 {
   font-size: 2.2rem;
   margin-bottom: 25px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  background: linear-gradient(to right, #2962ff, #0039cb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -310,7 +311,7 @@ section {
 
 .hero-content {
   max-width: 600px;
-  color: white;
+  color: #ffffff;
   transform: translateY(10px);
   opacity: 0;
   animation: heroIn 0.8s ease-out forwards;
@@ -326,10 +327,11 @@ section {
 .hero-content h1 {
   font-size: 3rem;
   margin-bottom: 10px;
+  color: #ffffff;
 }
 
 .hero-content h1 span {
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  background: linear-gradient(to right, #2962ff, #0039cb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -337,14 +339,14 @@ section {
 .hero-content h2 {
   font-size: 1.8rem;
   margin-bottom: 20px;
-  color: #00e6b8;
+  color: #2962ff;
 }
 
 .hero-content p {
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 25px;
-  color: #cfd8dc;
+  color: #b0b0b0;
 }
 
 .hero-buttons {
@@ -359,7 +361,7 @@ section {
   max-width: 350px;
   width: 100%;
   border-radius: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   transform: translateY(10px) scale(0.97);
   opacity: 0;
   animation: heroImgIn 0.9s ease-out forwards;
@@ -380,8 +382,8 @@ section {
   font-size: 1rem;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  color: white;
+  background: linear-gradient(to right, #2962ff, #0039cb);
+  color: #ffffff;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
   display: inline-block;
@@ -392,18 +394,18 @@ section {
 
 .cta-button.secondary {
   background: transparent;
-  border: 2px solid #00e6b8;
-  color: #00e6b8;
+  border: 2px solid #2962ff;
+  color: #2962ff;
 }
 
 .cta-button:hover {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 230, 184, 0.3);
+  box-shadow: 0 6px 20px rgba(41, 98, 255, 0.4);
 }
 
 .cta-button.secondary:hover {
-  background: #00e6b8;
-  color: white;
+  background: #2962ff;
+  color: #121212;
 }
 
 /* =========================================
@@ -436,14 +438,14 @@ section {
   width: 100%;
   max-width: 300px;
   border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transform: scale(0.98);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .about-image img:hover {
   transform: scale(1.02) translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .about-section p {
@@ -451,7 +453,7 @@ section {
   margin: 12px auto;
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #cfd8dc;
+  color: #b0b0b0;
 }
 
 /* =========================================
@@ -471,23 +473,24 @@ section {
 }
 
 .skill-box {
-  background: linear-gradient(135deg, #1a2a3a, #0f2027);
+  background: linear-gradient(135deg, #212121, #121212);
   border-radius: 16px;
   padding: 25px 20px;
   text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skill-box:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 10px 28px rgba(41, 98, 255, 0.3);
 }
 
 .skill-box ion-icon {
   font-size: 42px;
   margin-bottom: 15px;
-  color: #00e6b8;
+  color: #2962ff;
   transition: transform 0.25s ease;
 }
 
@@ -498,7 +501,7 @@ section {
 .skill-box h3 {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  color: #fff;
+  color: #ffffff;
 }
 
 /* =========================================
@@ -518,16 +521,17 @@ section {
 }
 
 .project-card {
-  background: linear-gradient(135deg, #1a2a3a, #0f2027);
+  background: linear-gradient(135deg, #212121, #121212);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card:hover {
   transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 28px rgba(0, 57, 203, 0.3);
 }
 
 .project-card img {
@@ -539,12 +543,12 @@ section {
 .project-card h3 {
   font-size: 1.3rem;
   margin: 15px 0 10px;
-  color: #fff;
+  color: #ffffff;
 }
 
 .project-card p {
   font-size: 0.95rem;
-  color: #cfd8dc;
+  color: #b0b0b0;
   padding: 0 15px;
   margin-bottom: 15px;
 }
@@ -556,14 +560,14 @@ section {
 }
 
 .project-links a {
-  color: #00e6b8;
+  color: #2962ff;
   font-weight: 600;
   transition: color 0.25s ease, transform 0.25s ease;
   text-decoration: none;
 }
 
 .project-links a:hover {
-  color: #6e8efb;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -589,7 +593,7 @@ section {
   left: 30px;
   width: 4px;
   height: 100%;
-  background: #00e6b8;
+  background: linear-gradient(to bottom, #2962ff, #0039cb);
   border-radius: 2px;
 }
 
@@ -606,9 +610,9 @@ section {
   top: 0;
   width: 24px;
   height: 24px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
+  background: linear-gradient(to right, #2962ff, #0039cb);
   border-radius: 50%;
-  border: 3px solid #0f2027;
+  border: 3px solid #121212;
   z-index: 2;
 }
 
@@ -617,36 +621,37 @@ section {
   left: 60px;
   top: 0;
   font-weight: bold;
-  color: #00e6b8;
+  color: #2962ff;
   font-size: 0.9rem;
-  background: rgba(15, 32, 39, 0.8);
+  background: rgba(18, 18, 18, 0.9);
   padding: 4px 10px;
   border-radius: 6px;
   z-index: 1;
 }
 
 .timeline-item .content {
-  background: linear-gradient(135deg, #1a2a3a, #0f2027);
+  background: linear-gradient(135deg, #212121, #121212);
   padding: 20px 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .timeline-item .content:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 8px 24px rgba(41, 98, 255, 0.25);
 }
 
 .timeline-item .content h3 {
   font-size: 1.3rem;
   margin-bottom: 8px;
-  color: #00e6b8;
+  color: #2962ff;
 }
 
 .timeline-item .content p {
-  color: #cfd8dc;
+  color: #b0b0b0;
   line-height: 1.6;
 }
 
@@ -661,14 +666,14 @@ section {
 .contact-section p {
   font-size: 1.05rem;
   margin-bottom: 20px;
-  color: #cfd8dc;
+  color: #b0b0b0;
 }
 
 .contact-info {
   margin: 20px auto;
   font-size: 1rem;
   line-height: 1.8;
-  color: #cfd8dc;
+  color: #b0b0b0;
 }
 
 .contact-form {
@@ -682,30 +687,31 @@ section {
 .contact-form input,
 .contact-form textarea {
   padding: 14px 16px;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  background: linear-gradient(135deg, #1a2a3a, #0f2027);
-  color: #fff;
+  background: rgba(33, 33, 33, 0.7);
+  color: #ffffff;
   font-size: 1rem;
   outline: none;
   transition: 0.25s ease;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   width: 100%;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  background: linear-gradient(135deg, #203a43, #2c5364);
+  background: rgba(0, 57, 203, 0.1);
+  border-color: #2962ff;
   transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 6px 18px rgba(41, 98, 255, 0.2);
 }
 
 .contact-form button {
   padding: 14px;
   border: none;
   border-radius: 999px;
-  background: linear-gradient(to right, #00e6b8, #6e8efb);
-  color: white;
+  background: linear-gradient(to right, #2962ff, #0039cb);
+  color: #ffffff;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -716,128 +722,386 @@ section {
 .contact-form button:hover {
   transform: translateY(-3px) scale(1.02);
   opacity: 0.95;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 22px rgba(41, 98, 255, 0.3);
 }
 
 /* =========================================
-   ✅ LIGHT THEME
+   ✅ LIGHT THEME - ENHANCED GRADIENTS THAT POP
 ========================================= */
 body.light-theme {
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  color: #111;
+  background: linear-gradient(135deg, #ffffff, #d9e3f0);
+  color: #1a237e;
+  transition: background 0.6s ease, color 0.6s ease;
 }
 
+/* Side Icons - Light Theme */
+body.light-theme .side-icon-group::before,
+body.light-theme .side-icon-group::after {
+  background: linear-gradient(to bottom, #2962ff, #1565c0);
+}
+
+body.light-theme .side-icon {
+  background: rgba(41, 98, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(41, 98, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(41, 98, 255, 0.2);
+}
+
+body.light-theme .side-icon ion-icon {
+  color: #2962ff;
+}
+
+body.light-theme .side-icon:hover,
+body.light-theme .side-icon:hover ion-icon {
+  background: rgba(41, 98, 255, 0.25) !important;
+  border-color: #2962ff !important;
+  box-shadow: 0 6px 20px rgba(41, 98, 255, 0.3) !important;
+  color: #1565c0 !important;
+}
+
+/* Navigation - Light Theme */
 body.light-theme .top-navbar,
 body.light-theme .mobile-topbar,
 body.light-theme .bottom-navigation {
-  background: linear-gradient(90deg, #e0eafc, #cfdef3);
-  color: #111;
+  background: linear-gradient(90deg, #e3f2fd, #bbdefb, #90caf9);
+  color: #0d47a1;
+  transition: background 0.6s ease;
+  border-bottom: 1px solid rgba(41, 98, 255, 0.2);
 }
 
-body.light-theme .nav-content ul li a,
-body.light-theme .mobile-topbar .theme-toggle,
-body.light-theme .theme-toggle,
-body.light-theme .bottom-navigation .list .text,
-body.light-theme .bottom-navigation .list .icon {
-  color: #111;
+body.light-theme .logo {
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+body.light-theme .nav-content ul li a {
+  color: #1565c0;
+  font-weight: 500;
 }
 
 body.light-theme .nav-content ul li a:hover,
 body.light-theme .nav-content ul li a.active {
-  background-color: rgba(0, 0, 0, 0.05);
-  color: #3a6073;
+  background-color: rgba(41, 98, 255, 0.15);
+  color: #2962ff;
+  border: 1px solid rgba(41, 98, 255, 0.3);
 }
 
 body.light-theme .bottom-navigation {
   background: linear-gradient(
     90deg,
-    rgba(224, 234, 252, 0.95),
-    rgba(207, 222, 243, 0.95)
+    rgba(227, 242, 253, 0.95),
+    rgba(187, 222, 251, 0.95)
   );
+  border-top: 1px solid rgba(41, 98, 255, 0.2);
+}
+
+body.light-theme .bottom-navigation .list .icon,
+body.light-theme .bottom-navigation .list .text {
+  color: #0d47a1;
 }
 
 body.light-theme .bottom-navigation .indicator {
-  background: linear-gradient(to right, #3a6073, #6e8efb);
-  border: 6px solid #f9f9f9;
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  border: 6px solid #ffffff;
+  box-shadow: 0 0 0 2px #2962ff;
+  transition: left 0.3s ease, background 0.6s ease, border-color 0.6s ease;
 }
 
-body.light-theme .side-icon {
-  background: rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.15);
+body.light-theme .theme-toggle {
+  color: #0d47a1;
 }
 
-body.light-theme .side-icon ion-icon {
-  color: #3a6073;
+body.light-theme .theme-toggle:hover {
+  color: #2962ff;
+}
+
+/* Hero Section - Light Theme */
+body.light-theme .hero-content {
+  color: #0d47a1;
+}
+
+body.light-theme .hero-content h1 {
+  color: #0d47a1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.light-theme .hero-content h1 span {
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 body.light-theme .hero-content h2 {
-  color: #3a6073;
+  color: #2962ff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-body.light-theme .hero-content p,
-body.light-theme .about-section p,
-body.light-theme .contact-section p,
-body.light-theme .contact-info,
-body.light-theme .timeline-item .content p,
-body.light-theme .project-card p {
-  color: #333;
+body.light-theme .hero-content p {
+  color: #546e7a;
+  font-weight: 500;
 }
 
+body.light-theme .hero-image img {
+  box-shadow: 0 15px 45px rgba(41, 98, 255, 0.2);
+  border: 3px solid #ffffff;
+  animation: heroImgIn 0.9s ease-out forwards;
+}
+
+/* Section Headers - Light Theme */
+body.light-theme .about-section h2,
+body.light-theme .skills-section h2,
+body.light-theme .projects-section h2,
+body.light-theme .education-section h2,
+body.light-theme .contact-section h2 {
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(41, 98, 255, 0.1);
+  position: relative;
+}
+
+body.light-theme .about-section h2::after,
+body.light-theme .skills-section h2::after,
+body.light-theme .projects-section h2::after,
+body.light-theme .education-section h2::after,
+body.light-theme .contact-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  border-radius: 2px;
+}
+
+/* Buttons - Light Theme */
+body.light-theme .cta-button {
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(41, 98, 255, 0.3);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+body.light-theme .cta-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  border-radius: 999px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+body.light-theme .cta-button:hover {
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.4);
+  transform: translateY(-3px) scale(1.03);
+}
+
+body.light-theme .cta-button.secondary {
+  background: transparent;
+  border: 2px solid #2962ff;
+  color: #2962ff;
+  position: relative;
+  overflow: hidden;
+}
+
+body.light-theme .cta-button.secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: -1;
+}
+
+body.light-theme .cta-button.secondary:hover {
+  background: #2962ff;
+  color: #ffffff;
+  border-color: #2962ff;
+}
+
+body.light-theme .cta-button.secondary:hover::before {
+  opacity: 1;
+}
+
+/* About Section - Light Theme */
+body.light-theme .about-section p {
+  color: #546e7a;
+  font-weight: 500;
+}
+
+body.light-theme .about-image img {
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.15);
+  border: 2px solid #ffffff;
+  transform: scale(0.98);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+body.light-theme .about-image img:hover {
+  transform: scale(1.02) translateY(-4px);
+  box-shadow: 0 15px 35px rgba(41, 98, 255, 0.25);
+}
+
+/* Skills Section - Light Theme */
 body.light-theme .skill-box {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.15);
+  border: 2px solid #bbdefb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
-body.light-theme .skill-box h3,
-body.light-theme .project-card h3 {
-  color: #111;
+body.light-theme .skill-box:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(41, 98, 255, 0.25);
+  border-color: #2962ff;
 }
 
+body.light-theme .skill-box ion-icon {
+  color: #2962ff;
+  transition: transform 0.25s ease;
+}
+
+body.light-theme .skill-box:hover ion-icon {
+  transform: scale(1.08) translateY(-2px);
+}
+
+body.light-theme .skill-box h3 {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Projects Section - Light Theme */
 body.light-theme .project-card {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.15);
+  border: 2px solid #bbdefb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+body.light-theme .project-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(21, 101, 192, 0.25);
+  border-color: #2962ff;
+}
+
+body.light-theme .project-card h3 {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+body.light-theme .project-card p {
+  color: #546e7a;
+  font-weight: 500;
 }
 
 body.light-theme .project-links a {
-  color: #3a6073;
+  color: #2962ff;
+  font-weight: 600;
 }
 
+body.light-theme .project-links a:hover {
+  color: #1565c0;
+  transform: translateY(-1px);
+}
+
+/* Education Section - Light Theme */
 body.light-theme .timeline::before {
-  background: #3a6073;
+  background: linear-gradient(to bottom, #2962ff, #1565c0);
 }
 
-body.light-theme .timeline-item .content {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-  color: #111;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .timeline-item .content:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+body.light-theme .timeline-item::before {
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 2px #2962ff;
 }
 
 body.light-theme .timeline-item .date {
-  color: #3a6073;
-  background: rgba(224, 234, 252, 0.8);
+  color: #ffffff;
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  border: 2px solid #ffffff;
+  box-shadow: 0 3px 10px rgba(41, 98, 255, 0.3);
+}
+
+body.light-theme .timeline-item .content {
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  color: #0d47a1;
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.15);
+  border: 2px solid #bbdefb;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+body.light-theme .timeline-item .content:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(41, 98, 255, 0.2);
+  border-color: #2962ff;
 }
 
 body.light-theme .timeline-item .content h3 {
-  color: #3a6073;
+  color: #2962ff;
+  font-weight: 600;
+}
+
+body.light-theme .timeline-item .content p {
+  color: #546e7a;
+  font-weight: 500;
+}
+
+/* Contact Section - Light Theme */
+body.light-theme .contact-section p {
+  color: #546e7a;
+  font-weight: 500;
+}
+
+body.light-theme .contact-info {
+  color: #546e7a;
+  font-weight: 500;
 }
 
 body.light-theme .contact-form input,
 body.light-theme .contact-form textarea {
-  background: linear-gradient(135deg, #ffffff, #e0eafc);
-  color: #111;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff, #f5f9ff);
+  border: 2px solid #bbdefb;
+  color: #0d47a1;
+  box-shadow: 0 5px 15px rgba(41, 98, 255, 0.1);
+  transition: 0.25s ease;
+  font-weight: 500;
 }
 
 body.light-theme .contact-form input:focus,
 body.light-theme .contact-form textarea:focus {
-  background: #f0f5ff;
+  background: linear-gradient(135deg, #ffffff, #e8f4ff);
+  border-color: #2962ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.2);
+  outline: none;
 }
 
 body.light-theme .contact-form button {
-  background: linear-gradient(to right, #3a6073, #6e8efb);
+  background: linear-gradient(to right, #2962ff, #1565c0);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(41, 98, 255, 0.3);
+  border: 2px solid transparent;
+  transition: 0.25s ease;
+}
+
+body.light-theme .contact-form button:hover {
+  transform: translateY(-3px) scale(1.02);
+  opacity: 0.95;
+  box-shadow: 0 8px 25px rgba(41, 98, 255, 0.4);
 }
 
 /* =========================================
@@ -902,7 +1166,12 @@ body.light-theme .contact-form button {
     width: 40px;
     height: 40px;
     top: -18px;
-    border: 4px solid #0f2027;
+    border: 4px solid #121212;
+  }
+
+  body.light-theme .bottom-navigation .indicator {
+    border: 4px solid #ffffff;
+    box-shadow: 0 0 0 2px #2962ff;
   }
 
   .bottom-navigation .indicator .icon {
