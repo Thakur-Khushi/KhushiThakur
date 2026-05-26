@@ -49,18 +49,21 @@ body {
   gap: 22px;
   position: relative;
   align-items: center;
+  overflow: visible;
 }
 
 .side-icon-group::before,
 .side-icon-group::after {
   content: '';
-  width: 2px;
-  height: 40px;
-  background: linear-gradient(to bottom, #2962ff, #0039cb);
+  width: 3px;
+  height: 48px;
+  background: linear-gradient(to bottom, rgba(41, 98, 255, 0), #2962ff, #0039cb, rgba(41, 98, 255, 0));
   border-radius: 1px;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 0;
+  opacity: 0.95;
 }
 
 .side-icon-group::before {
@@ -88,7 +91,7 @@ body {
 }
 
 .side-icon ion-icon {
-  font-size: 20px;
+  font-size: clamp(16px, 1.2vw, 24px);
   color: #2962ff;
   transition: none !important;
 }
@@ -127,22 +130,23 @@ body {
 /* Desktop/Top Nav */
 .top-navbar {
   width: 100%;
-  padding: 20px 0;
+  padding: clamp(16px, 1.2vw, 28px) 0;
   top: 0;
   left: 0;
 }
 
 .nav-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 clamp(24px, 3vw, 72px);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: clamp(1.8rem, 1.5vw, 2.3rem);
   font-weight: bold;
   color: #ffffff;
 }
@@ -150,13 +154,14 @@ body {
 .nav-content ul {
   list-style: none;
   display: flex;
-  gap: 40px;
+  gap: clamp(24px, 2.8vw, 56px);
 }
 
 .nav-content ul li a {
   text-decoration: none;
   color: #e0e0e0;
   font-weight: 600;
+  font-size: clamp(0.9rem, 1.2vw, 1.4rem);
   transition: 0.3s;
   padding: 8px 12px;
   border-radius: 6px;
@@ -260,7 +265,7 @@ body {
 .theme-toggle {
   background: none;
   border: none;
-  font-size: 1.3rem;
+  font-size: clamp(1.2rem, 1.1vw, 1.6rem);
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s;
@@ -274,8 +279,8 @@ body {
    ✅ MAIN CONTENT & SECTIONS
 ========================================= */
 .main-content {
-  padding: 1px 40px 100px;
-  max-width: 1400px;
+  padding: 1px clamp(20px, 5vw, 80px) 100px;
+  max-width: none;
   margin: 0 auto;
   width: 100%;
 }
@@ -290,9 +295,10 @@ section {
 .projects-section h2,
 .education-section h2,
 .contact-section h2 {
-  font-size: 2.2rem;
+  font-size: clamp(1.8rem, 3vw, 3.6rem);
   margin-bottom: 25px;
   background: linear-gradient(to right, #2962ff, #0039cb);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
@@ -305,13 +311,13 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 40px;
+  padding: 60px 20px;
   margin-top: 80px;
   flex-wrap: wrap;
 }
 
 .hero-content {
-  max-width: 600px;
+  width: min(100%, 680px);
   color: #ffffff;
   transform: translateY(10px);
   opacity: 0;
@@ -326,25 +332,26 @@ section {
 }
 
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: clamp(2.8rem, 5.5vw, 6rem);
   margin-bottom: 10px;
   color: #ffffff;
 }
 
 .hero-content h1 span {
   background: linear-gradient(to right, #2962ff, #0039cb);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero-content h2 {
-  font-size: 1.8rem;
+  font-size: clamp(1.3rem, 3.5vw, 3.4rem);
   margin-bottom: 20px;
   color: #2962ff;
 }
 
 .hero-content p {
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 1.4vw, 1.5rem);
   line-height: 1.6;
   margin-bottom: 25px;
   color: #b0b0b0;
@@ -359,7 +366,7 @@ section {
 }
 
 .hero-image img {
-  max-width: 350px;
+  max-width: clamp(320px, 24vw, 760px);
   width: 100%;
   border-radius: 20px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
@@ -380,7 +387,7 @@ section {
 ========================================= */
 .cta-button {
   padding: 12px 25px;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.3rem);
   border: none;
   border-radius: 999px;
   background: linear-gradient(to right, #2962ff, #0039cb);
@@ -413,7 +420,7 @@ section {
    ✅ ABOUT SECTION
 ========================================= */
 .about-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -422,22 +429,22 @@ section {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: clamp(24px, 3vw, 72px);
   margin-top: 30px;
 }
 
 .about-text {
-  flex: 1 1 400px;
+  flex: 1 1 min(100%, 700px);
   text-align: left;
 }
 
 .about-image {
-  flex: 1 1 300px;
+  flex: 1 1 min(100%, 420px);
 }
 
 .about-image img {
   width: 100%;
-  max-width: 300px;
+  max-width: clamp(260px, 22vw, 460px);
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
   transform: scale(0.98);
@@ -450,9 +457,9 @@ section {
 }
 
 .about-section p {
-  max-width: 800px;
+  max-width: min(100%, 920px);
   margin: 12px auto;
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.3vw, 1.4rem);
   line-height: 1.7;
   color: #b0b0b0;
 }
@@ -489,7 +496,7 @@ section {
 }
 
 .skill-box ion-icon {
-  font-size: 42px;
+  font-size: clamp(36px, 2vw, 48px);
   margin-bottom: 15px;
   color: #2962ff;
   transition: transform 0.25s ease;
@@ -500,7 +507,7 @@ section {
 }
 
 .skill-box h3 {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1.3vw, 1.6rem);
   margin-bottom: 8px;
   color: #ffffff;
 }
@@ -509,7 +516,7 @@ section {
    ✅ PROJECTS SECTION
 ========================================= */
 .projects-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -542,13 +549,13 @@ section {
 }
 
 .project-card h3 {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.8rem);
   margin: 15px 0 10px;
   color: #ffffff;
 }
 
 .project-card p {
-  font-size: 0.95rem;
+  font-size: clamp(0.9rem, 1.3vw, 1.35rem);
   color: #b0b0b0;
   padding: 0 15px;
   margin-bottom: 15px;
@@ -576,7 +583,7 @@ section {
    ✅ EDUCATION SECTION
 ========================================= */
 .education-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
@@ -623,7 +630,7 @@ section {
   top: 0;
   font-weight: bold;
   color: #2962ff;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1vw, 1.2rem);
   background: rgba(18, 18, 18, 0.9);
   padding: 4px 10px;
   border-radius: 6px;
@@ -646,7 +653,7 @@ section {
 }
 
 .timeline-item .content h3 {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 1.3vw, 1.6rem);
   margin-bottom: 8px;
   color: #2962ff;
 }
@@ -660,19 +667,19 @@ section {
    ✅ CONTACT SECTION
 ========================================= */
 .contact-section {
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .contact-section p {
-  font-size: 1.05rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.35rem);
   margin-bottom: 20px;
   color: #b0b0b0;
 }
 
 .contact-info {
   margin: 20px auto;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 1.1vw, 1.3rem);
   line-height: 1.8;
   color: #b0b0b0;
 }
@@ -692,7 +699,7 @@ section {
   border-radius: 10px;
   background: rgba(33, 33, 33, 0.7);
   color: #ffffff;
-  font-size: 1rem;
+  font-size: clamp(0.95rem, 0.9vw, 1.12rem);
   outline: none;
   transition: 0.25s ease;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
@@ -828,6 +835,7 @@ body.light-theme .hero-content h1 {
 
 body.light-theme .hero-content h1 span {
   background: linear-gradient(to right, #2962ff, #1565c0);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -855,6 +863,7 @@ body.light-theme .projects-section h2,
 body.light-theme .education-section h2,
 body.light-theme .contact-section h2 {
   background: linear-gradient(to right, #2962ff, #1565c0);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(41, 98, 255, 0.1);
@@ -1201,7 +1210,7 @@ body.light-theme .contact-form button:hover {
   }
 
   .side-icon ion-icon {
-    font-size: 16px !important;
+    font-size: clamp(14px, 1vw, 20px) !important;
   }
 
   .side-icon-group::before,
@@ -1261,11 +1270,11 @@ body.light-theme .contact-form button:hover {
   }
 
   .skill-box ion-icon {
-    font-size: 30px !important;
+    font-size: clamp(26px, 1.8vw, 36px) !important;
   }
 
   .skill-box h3 {
-    font-size: 0.9rem !important;
+    font-size: clamp(0.85rem, 0.85vw, 1.1rem) !important;
   }
 
   /* Projects */
@@ -1411,7 +1420,7 @@ body.light-theme .contact-form button:hover {
 
   /* Hero */
   .hero-section {
-    padding: 80px 30px 60px;
+    padding: 60px 30px;
     margin-top: 70px;
     gap: 40px;
     min-height: auto;
@@ -1458,7 +1467,7 @@ body.light-theme .contact-form button:hover {
     padding: 60px 30px;
   }
   .about-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.7rem, 1.8vw, 2.4rem);
     margin-bottom: 20px;
   }
   .about-content {
@@ -1469,7 +1478,7 @@ body.light-theme .contact-form button:hover {
     flex: 1 1 300px;
   }
   .about-text p {
-    font-size: 0.95rem;
+    font-size: clamp(0.9rem, 1.1vw, 1.2rem);
     line-height: 1.5;
     margin: 10px 0;
   }
@@ -1485,7 +1494,7 @@ body.light-theme .contact-form button:hover {
     padding: 60px 30px;
   }
   .skills-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem);
     margin-bottom: 30px;
   }
   .skills-grid {
@@ -1500,11 +1509,11 @@ body.light-theme .contact-form button:hover {
   }
 
   .skill-box ion-icon {
-    font-size: 2.5rem;
+    font-size: clamp(2.2rem, 2vw, 3rem);
     margin-bottom: 12px;
   }
   .skill-box h3 {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.1vw, 1.3rem);
   }
 
   /* Projects */
@@ -1512,7 +1521,7 @@ body.light-theme .contact-form button:hover {
     padding: 60px 30px;
   }
   .projects-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem);
     margin-bottom: 30px;
   }
   .projects-grid {
@@ -1528,11 +1537,11 @@ body.light-theme .contact-form button:hover {
     height: 140px;
   }
   .project-card h3 {
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 1.4vw, 1.6rem);
     margin: 12px 0 8px;
   }
   .project-card p {
-    font-size: 0.9rem;
+    font-size: clamp(0.85rem, 1.1vw, 1.2rem);
     margin-bottom: 12px;
     line-height: 1.4;
   }
@@ -1616,7 +1625,7 @@ body.light-theme .contact-form button:hover {
     height: 42px;
   }
   .side-icon ion-icon {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 0.95vw, 1.3rem);
   }
   .side-icon-group {
     gap: 20px;
@@ -1643,111 +1652,534 @@ body.light-theme .contact-form button:hover {
 
 /* ====== DESKTOP (>1024px) ====== */
 @media (min-width: 1025px) {
-  /* Only increase max-widths for full-width effect */
   .main-content {
-    max-width: 1600px;
-    padding: 1px 60px 100px;
+    max-width: none;
+    width: 100%;
+    padding: 1px clamp(16px, 2.5vw, 48px) 80px;
   }
 
   .nav-content {
-    max-width: 1600px;
-    padding: 0 60px;
+    max-width: none;
+    width: 100%;
+    padding: 0 clamp(16px, 2.5vw, 48px);
   }
 
   .skills-grid {
-    max-width: 1400px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .projects-grid {
-    max-width: 1400px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
+  .hero-section {
+    padding: clamp(48px, 4vw, 80px) clamp(16px, 2.2vw, 40px);
+  }
+
   .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: clamp(3.8rem, 4vw, 5.2rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(1.8rem, 2.2vw, 2.8rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1rem, 1vw, 1.22rem);
+    max-width: 680px;
   }
 
   .hero-image img {
-    max-width: 400px;
+    max-width: clamp(360px, 24vw, 640px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(2rem, 3.2vw, 3.6rem);
+  }
+
+  .about-section {
+    padding: clamp(48px, 4vw, 80px) clamp(16px, 2.2vw, 40px);
+  }
+
+  .about-content {
+    gap: 56px;
+  }
+
+  .about-text p {
+    font-size: clamp(0.95rem, 1.2vw, 1.4rem);
+    line-height: 1.8;
+  }
+
+  .about-image img {
+    max-width: clamp(280px, 20vw, 420px);
+  }
+
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: clamp(48px, 4vw, 80px) clamp(16px, 2.2vw, 40px);
+  }
+
+  .skills-grid {
+    gap: 28px;
+  }
+
+  .skill-box {
+    padding: 28px 22px;
+  }
+
+  .skill-box ion-icon {
+    font-size: clamp(2.2rem, 2.5vw, 3.4rem);
+  }
+
+  .skill-box h3 {
+    font-size: clamp(1.05rem, 1.2vw, 1.5rem);
+  }
+
+  .projects-grid {
+    gap: 28px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.15rem, 1.4vw, 1.8rem);
+  }
+
+  .project-card p {
+    font-size: clamp(0.9rem, 1.1vw, 1.3rem);
+    line-height: 1.55;
+  }
+
+  .timeline {
+    max-width: 960px;
+  }
+
+  .timeline-item .content h3 {
+    font-size: clamp(1.2rem, 1.05vw, 1.5rem);
+  }
+
+  .timeline-item .content p {
+    font-size: clamp(0.95rem, 0.9vw, 1.1rem);
+  }
+
+  .contact-section p,
+  .contact-info {
+    font-size: 1.05rem;
+  }
+
+  .contact-form {
+    max-width: 680px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 16px 18px;
+    font-size: 1.02rem;
   }
 }
 
 /* ====== LARGE DESKTOP (>1440px) ====== */
 @media (min-width: 1440px) {
   .main-content {
-    max-width: 1800px;
+    max-width: none;
+  }
+
+  .content-wrapper {
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 
   .nav-content {
-    max-width: 1800px;
+    max-width: none;
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+    align-items: center;
+    gap: clamp(24px, 3vw, 48px);
+    padding: clamp(48px, 4vw, 72px) clamp(16px, 2.5vw, 36px);
+    margin-top: 48px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(3.8rem, 5.2vw, 6.4rem);
   }
 
   .skills-grid {
-    max-width: 1600px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
 
   .projects-grid {
-    max-width: 1600px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
-  .hero-content h1 {
-    font-size: 4rem;
+  .hero-content h2 {
+    font-size: clamp(2rem, 3.5vw, 3.8rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1rem, 1.5vw, 1.6rem);
+    max-width: none;
   }
 
   .hero-image img {
-    max-width: 450px;
+    max-width: 540px;
+  }
+
+  .side-icons {
+    z-index: 1001;
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .side-icons.left-side {
+    left: clamp(20px, 1.8vw, 44px);
+  }
+
+  .side-icons.right-side {
+    right: clamp(20px, 1.8vw, 44px);
+  }
+
+  .side-icon {
+    width: clamp(52px, 2.4vw, 66px);
+    height: clamp(52px, 2.4vw, 66px);
+  }
+
+  .side-icon ion-icon {
+    font-size: clamp(22px, 1.2vw, 28px);
+  }
+
+  .side-icon-group {
+    gap: clamp(22px, 1.6vw, 34px);
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: clamp(56px, 4vw, 76px);
   }
 
   /* Center timeline on ultra-wide */
   .timeline {
-    max-width: 1200px;
+    max-width: 1120px;
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(2.6rem, 3.5vw, 4.2rem);
+  }
+
+  .about-section {
+    padding: clamp(48px, 4vw, 72px) clamp(16px, 2.5vw, 36px);
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 44px;
+    align-items: center;
+  }
+
+  .about-text p {
+    font-size: 1.08rem;
+    line-height: 1.8;
+    max-width: none;
+  }
+
+  .about-image img {
+    max-width: 380px;
+  }
+
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: clamp(48px, 4vw, 72px) clamp(16px, 2.5vw, 36px);
+  }
+
+  .skills-grid {
+    gap: 32px;
+  }
+
+  .skill-box {
+    padding: 32px 24px;
+  }
+
+  .skill-box ion-icon {
+    font-size: 3.25rem;
+  }
+
+  .skill-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .projects-grid {
+    gap: 32px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.4rem, 1.6vw, 2rem);
+  }
+
+  .project-card p {
+    font-size: clamp(1rem, 1.3vw, 1.4rem);
+  }
+
+  .timeline-item .content {
+    padding: 24px 28px;
+  }
+
+  .timeline-item .content h3 {
+    font-size: 1.45rem;
+  }
+
+  .timeline-item .content p {
+    font-size: 1.05rem;
+  }
+
+  .contact-section p,
+  .contact-info {
+    font-size: 1.1rem;
+  }
+
+  .contact-form {
+    max-width: 760px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 18px 20px;
+    font-size: 1.05rem;
+  }
+
+  .cta-button {
+    padding: 14px 28px;
+    font-size: 1rem;
   }
 }
 
 /* ====== ULTRA-WIDE DESKTOP (>1920px) ====== */
 @media (min-width: 1920px) {
   .main-content {
-    max-width: 2000px;
-    padding: 1px 80px 120px;
+    max-width: none;
+    padding: 1px clamp(48px, 4.5vw, 120px) 80px;
+  }
+
+  .content-wrapper {
+    max-width: none;
+    margin: 0;
+    padding-inline: clamp(20px, 2vw, 48px);
   }
 
   .nav-content {
-    max-width: 2000px;
-    padding: 0 80px;
+    max-width: none;
+    padding: 0 clamp(48px, 4.5vw, 120px);
+  }
+
+  .logo {
+    font-size: clamp(2rem, 1.6vw, 2.4rem);
+  }
+
+  .nav-content ul {
+    gap: clamp(36px, 2.4vw, 64px);
+  }
+
+  .nav-content ul li a {
+    font-size: clamp(1rem, 1.2vw, 1.5rem);
+    padding: 10px 14px;
+  }
+
+  .theme-toggle {
+    font-size: clamp(1.35rem, 1.2vw, 1.7rem);
+  }
+
+  .hero-section {
+    grid-template-columns: minmax(0, 1.3fr) minmax(520px, 0.7fr);
+    gap: clamp(20px, 2vw, 40px);
+    padding: clamp(72px, 5vw, 120px) clamp(48px, 4.5vw, 120px);
+    margin-top: 48px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: none;
   }
 
   .skills-grid {
-    max-width: 1800px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(6, 1fr);
   }
 
   .projects-grid {
-    max-width: 1800px;
+    max-width: none;
+    width: 100%;
     grid-template-columns: repeat(4, 1fr);
   }
 
   .hero-content h1 {
-    font-size: 4.5rem;
+    font-size: clamp(4rem, 5.5vw, 7rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(2rem, 3.8vw, 4.2rem);
   }
 
   .hero-content p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.6vw, 1.7rem);
+    max-width: none;
   }
 
   .hero-image img {
-    max-width: 500px;
+    max-width: clamp(420px, 25vw, 760px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(2.8rem, 3.8vw, 4.6rem);
+  }
+
+  .about-section {
+    padding: clamp(72px, 5vw, 120px) clamp(48px, 4.5vw, 120px);
+  }
+
+  .about-content {
+    grid-template-columns: minmax(0, 1.3fr) minmax(340px, 0.7fr);
+    gap: clamp(16px, 1.5vw, 40px);
+  }
+
+  .about-text p {
+    font-size: clamp(1rem, 1.4vw, 1.5rem);
+    line-height: 2;
+    max-width: none;
+  }
+
+  .about-image img {
+    max-width: clamp(320px, 22vw, 520px);
+  }
+
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: clamp(72px, 5vw, 120px) clamp(48px, 4.5vw, 120px);
+  }
+
+  .skills-grid {
+    gap: 36px;
+  }
+
+  .skill-box {
+    padding: 36px 28px;
+  }
+
+  .skill-box ion-icon {
+    font-size: clamp(3.2rem, 2.5vw, 4.2rem);
+  }
+
+  .skill-box h3 {
+    font-size: 1.38rem;
+  }
+
+  .projects-grid {
+    gap: 36px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.5rem, 1.8vw, 2.2rem);
+  }
+
+  .project-card p {
+    font-size: clamp(1.05rem, 1.4vw, 1.6rem);
+    line-height: 1.65;
+  }
+
+  .timeline {
+    max-width: 1240px;
+  }
+
+  .timeline-item .content {
+    padding: 28px 32px;
+  }
+
+  .timeline-item .content h3 {
+    font-size: 1.55rem;
+  }
+
+  .timeline-item .content p {
+    font-size: 1.12rem;
+  }
+
+  .contact-section p,
+  .contact-info {
+    font-size: 1.16rem;
+  }
+
+  .contact-form {
+    max-width: 840px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 20px 22px;
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    padding: 16px 32px;
+    font-size: 1.05rem;
   }
 
   /* Side icons stay near content */
   .side-icons.left-side {
-    left: calc(50% - 1000px + 60px) !important;
+    left: clamp(24px, 1.4vw, 40px) !important;
   }
 
   .side-icons.right-side {
-    right: calc(50% - 1000px + 60px) !important;
+    right: clamp(24px, 1.4vw, 40px) !important;
+  }
+
+  .side-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .side-icon ion-icon {
+    font-size: 24px;
+  }
+
+  .side-icon-group {
+    gap: 28px;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 64px;
   }
 }
 
