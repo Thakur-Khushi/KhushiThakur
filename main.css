@@ -7,12 +7,16 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #121212, #1e1e1e);
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   color: #e0e0e0;
   transition: background 0.6s ease, color 0.6s ease;
 }
@@ -2204,5 +2208,902 @@ body.light-theme .contact-form button:hover {
     display: none !important;
     opacity: 0 !important;
     pointer-events: none !important;
+  }
+}
+
+/* ====== DESKTOP SCALE POLISH ====== */
+@media (min-width: 769px) {
+  .top-navbar {
+    padding: clamp(14px, 1vw, 20px) 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+
+  .nav-content,
+  .main-content,
+  .content-wrapper {
+    width: 100%;
+  }
+
+  .nav-content,
+  .content-wrapper {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .nav-content {
+    padding-inline: clamp(32px, 4vw, 88px);
+  }
+
+  .main-content {
+    max-width: none;
+    margin: 0;
+    padding: 1px clamp(72px, 7vw, 140px) 72px;
+  }
+
+  .logo {
+    font-size: clamp(1.45rem, 1.25vw, 1.9rem);
+  }
+
+  .nav-content ul {
+    gap: clamp(20px, 2.2vw, 42px);
+  }
+
+  .nav-content ul li a {
+    font-size: clamp(0.92rem, 0.95vw, 1.12rem);
+    padding: 6px 10px;
+  }
+
+  .theme-toggle {
+    font-size: clamp(1.05rem, 1vw, 1.35rem);
+  }
+
+  .hero-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+    gap: clamp(32px, 4vw, 72px);
+    min-height: min(760px, calc(100svh - 82px));
+    margin-top: 68px;
+    padding: clamp(36px, 4vw, 58px) 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 720px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.75rem, 4.1vw, 4.65rem);
+    line-height: 1.08;
+    margin-bottom: 12px;
+  }
+
+  .hero-content h2 {
+    font-size: clamp(1.55rem, 2.45vw, 2.75rem);
+    line-height: 1.15;
+  }
+
+  .hero-content p {
+    max-width: 640px;
+    font-size: clamp(0.98rem, 1.05vw, 1.18rem);
+  }
+
+  .hero-image {
+    justify-self: end;
+  }
+
+  .hero-image img {
+    max-width: clamp(330px, 32vw, 500px);
+    border-radius: 18px;
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: clamp(48px, 4vw, 72px) 0;
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(2rem, 2.6vw, 3rem);
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: clamp(18px, 2vw, 28px);
+    max-width: 1180px;
+  }
+
+  .skill-box {
+    padding: clamp(20px, 2vw, 28px) 18px;
+    border-radius: 12px;
+  }
+
+  .skill-box ion-icon {
+    font-size: clamp(2.1rem, 2vw, 2.8rem);
+  }
+
+  .skill-box h3 {
+    font-size: clamp(1rem, 1vw, 1.22rem);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(18px, 2vw, 28px);
+    max-width: 1180px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.1rem, 1.2vw, 1.45rem);
+  }
+
+  .project-card p {
+    font-size: clamp(0.92rem, 0.95vw, 1.08rem);
+  }
+
+  .side-icons.left-side {
+    left: clamp(14px, 1.8vw, 34px) !important;
+  }
+
+  .side-icons.right-side {
+    right: clamp(14px, 1.8vw, 34px) !important;
+  }
+
+  .side-icon {
+    width: clamp(38px, 2.2vw, 46px);
+    height: clamp(38px, 2.2vw, 46px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1180px) {
+  .main-content {
+    padding-inline: clamp(72px, 8vw, 96px);
+  }
+
+  .side-icons.left-side {
+    left: 14px !important;
+  }
+
+  .side-icons.right-side {
+    right: 14px !important;
+  }
+
+  .side-icon-group {
+    gap: 16px;
+  }
+
+  .side-icon-group::before,
+  .side-icon-group::after {
+    height: 34px;
+  }
+
+  .side-icon-group::before {
+    top: -36px;
+  }
+
+  .side-icon-group::after {
+    bottom: -36px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-content h1 {
+    font-size: clamp(3.2rem, 4vw, 4.9rem);
+  }
+
+  .hero-image img {
+    max-width: clamp(400px, 31vw, 540px);
+  }
+}
+
+@media (min-width: 1600px) {
+  .nav-content,
+  .content-wrapper {
+    max-width: none;
+  }
+
+  .top-navbar {
+    padding: clamp(18px, 1.2vw, 28px) 0;
+  }
+
+  .nav-content {
+    padding-inline: clamp(56px, 4vw, 96px);
+  }
+
+  .main-content {
+    padding-inline: clamp(112px, 7vw, 180px);
+  }
+
+  .logo {
+    font-size: clamp(1.8rem, 1.35vw, 2.25rem);
+  }
+
+  .nav-content ul {
+    gap: clamp(36px, 2.6vw, 64px);
+  }
+
+  .nav-content ul li a {
+    font-size: clamp(1.08rem, 1vw, 1.35rem);
+    padding: 9px 13px;
+  }
+
+  .theme-toggle {
+    font-size: clamp(1.35rem, 1.1vw, 1.65rem);
+  }
+
+  .side-icons.left-side {
+    left: clamp(28px, 2.2vw, 52px) !important;
+  }
+
+  .side-icons.right-side {
+    right: clamp(28px, 2.2vw, 52px) !important;
+  }
+
+  .side-icon {
+    width: clamp(50px, 2.7vw, 58px);
+    height: clamp(50px, 2.7vw, 58px);
+  }
+
+  .side-icon ion-icon {
+    font-size: clamp(1.45rem, 1.25vw, 1.75rem);
+  }
+
+  .side-icon img {
+    width: clamp(26px, 1.4vw, 32px);
+    height: clamp(26px, 1.4vw, 32px);
+  }
+
+  .side-icon-group {
+    gap: clamp(24px, 1.8vw, 36px);
+  }
+
+  .hero-section {
+    grid-template-columns: minmax(0, 1.1fr) minmax(440px, 0.9fr);
+    gap: clamp(56px, 4.5vw, 96px);
+    min-height: min(860px, calc(100svh - 92px));
+    padding-block: clamp(64px, 4.8vw, 92px);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(4rem, 4.2vw, 5.25rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(2rem, 2.6vw, 3rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1.08rem, 1.05vw, 1.35rem);
+    max-width: 760px;
+  }
+
+  .hero-image img {
+    max-width: clamp(470px, 29vw, 600px);
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-block: clamp(72px, 5vw, 104px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(2.6rem, 2.8vw, 3.6rem);
+  }
+
+  .about-text p {
+    font-size: clamp(1.08rem, 1vw, 1.28rem);
+  }
+
+  .skills-grid,
+  .projects-grid {
+    max-width: 1360px;
+    gap: clamp(26px, 2vw, 36px);
+  }
+
+  .skill-box {
+    padding: clamp(28px, 2.2vw, 38px) 24px;
+  }
+
+  .skill-box ion-icon {
+    font-size: clamp(2.8rem, 2.4vw, 3.6rem);
+  }
+
+  .skill-box h3 {
+    font-size: clamp(1.2rem, 1.05vw, 1.45rem);
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.35rem, 1.25vw, 1.75rem);
+  }
+
+  .project-card p {
+    font-size: clamp(1rem, 1vw, 1.22rem);
+  }
+
+  .timeline {
+    max-width: 1040px;
+  }
+
+  .timeline-item .content h3 {
+    font-size: clamp(1.35rem, 1.15vw, 1.65rem);
+  }
+
+  .timeline-item .content p,
+  .contact-section p,
+  .contact-info {
+    font-size: clamp(1.02rem, 1vw, 1.22rem);
+  }
+
+  .contact-form {
+    max-width: 760px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .nav-content,
+  .content-wrapper {
+    max-width: none;
+  }
+
+  .main-content {
+    padding-inline: clamp(110px, 5.5vw, 190px);
+  }
+
+  .nav-content {
+    padding-inline: clamp(80px, 5vw, 160px);
+  }
+
+  .logo {
+    font-size: clamp(2.2rem, 1.45vw, 3rem);
+  }
+
+  .nav-content ul li a {
+    font-size: clamp(1.3rem, 1.05vw, 1.8rem);
+  }
+
+  .side-icons.left-side {
+    left: clamp(36px, 2.4vw, 72px) !important;
+  }
+
+  .side-icons.right-side {
+    right: clamp(36px, 2.4vw, 72px) !important;
+  }
+
+  .side-icon {
+    width: clamp(56px, 2.6vw, 68px);
+    height: clamp(56px, 2.6vw, 68px);
+  }
+
+  .side-icon ion-icon {
+    font-size: clamp(1.65rem, 1.25vw, 2rem);
+  }
+
+  .hero-section {
+    grid-template-columns: minmax(0, 1.12fr) minmax(560px, 0.88fr);
+    gap: clamp(80px, 5vw, 150px);
+    min-height: auto;
+    padding-block: clamp(64px, 3.2vw, 96px);
+  }
+
+  .hero-content {
+    max-width: 1180px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(5.6rem, 4.4vw, 8rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(3rem, 3vw, 5rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1.3rem, 1.2vw, 1.9rem);
+    max-width: 1080px;
+  }
+
+  .hero-image img {
+    max-width: clamp(700px, 28vw, 980px);
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-block: clamp(56px, 3vw, 88px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(3.4rem, 2.8vw, 5rem);
+  }
+
+  .about-content {
+    gap: clamp(80px, 5vw, 160px);
+  }
+
+  .about-text p {
+    font-size: clamp(1.25rem, 1.1vw, 1.75rem);
+    max-width: 1280px;
+  }
+
+  .about-image img {
+    max-width: clamp(520px, 22vw, 780px);
+  }
+
+  .skills-grid {
+    max-width: min(100%, 2300px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(34px, 1.8vw, 58px);
+  }
+
+  .skill-box {
+    padding: clamp(36px, 2vw, 56px) 28px;
+  }
+
+  .skill-box ion-icon {
+    font-size: clamp(3.5rem, 2.1vw, 4.8rem);
+  }
+
+  .skill-box h3 {
+    font-size: clamp(1.45rem, 1.05vw, 2rem);
+  }
+
+  .projects-grid {
+    max-width: min(100%, 2300px);
+    grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
+    gap: clamp(34px, 1.8vw, 58px);
+  }
+
+  .project-card {
+    border-radius: 18px;
+  }
+
+  .project-card h3 {
+    font-size: clamp(1.6rem, 1.15vw, 2.25rem);
+  }
+
+  .project-card p {
+    font-size: clamp(1.18rem, 1vw, 1.65rem);
+    line-height: 1.6;
+  }
+
+  .timeline {
+    max-width: 1500px;
+  }
+
+  .timeline-item .content {
+    padding: clamp(30px, 1.6vw, 48px) clamp(36px, 2vw, 60px);
+  }
+
+  .timeline-item .content h3 {
+    font-size: clamp(1.7rem, 1.15vw, 2.35rem);
+  }
+
+  .timeline-item .content p,
+  .contact-section p,
+  .contact-info {
+    font-size: clamp(1.25rem, 1vw, 1.7rem);
+  }
+
+  .contact-form {
+    max-width: 1100px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: clamp(1.18rem, 0.95vw, 1.55rem);
+    padding: clamp(20px, 1.2vw, 30px) clamp(24px, 1.5vw, 36px);
+  }
+}
+
+@media (min-width: 3000px) {
+  .top-navbar {
+    padding: clamp(28px, 1vw, 42px) 0;
+  }
+
+  .main-content {
+    padding-inline: clamp(180px, 6vw, 280px);
+  }
+
+  .nav-content {
+    padding-inline: clamp(130px, 5vw, 220px);
+  }
+
+  .logo {
+    font-size: clamp(3rem, 1.25vw, 4rem);
+  }
+
+  .nav-content ul {
+    gap: clamp(72px, 2.6vw, 120px);
+  }
+
+  .nav-content ul li a {
+    font-size: clamp(1.7rem, 0.9vw, 2.35rem);
+    padding: 14px 20px;
+  }
+
+  .theme-toggle {
+    font-size: clamp(2rem, 0.9vw, 2.6rem);
+  }
+
+  .hero-section {
+    gap: clamp(120px, 5vw, 220px);
+    padding-block: clamp(80px, 3vw, 130px);
+  }
+
+  .hero-content {
+    max-width: 1500px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(8rem, 4vw, 10.5rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(4.6rem, 2.4vw, 6.4rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1.8rem, 0.95vw, 2.35rem);
+    max-width: 1450px;
+  }
+
+  .hero-image img {
+    max-width: clamp(980px, 28vw, 1250px);
+  }
+
+  .side-icon {
+    width: clamp(76px, 2.2vw, 96px);
+    height: clamp(76px, 2.2vw, 96px);
+  }
+
+  .side-icon ion-icon {
+    font-size: clamp(2.3rem, 1vw, 3rem);
+  }
+
+  .side-icon img {
+    width: clamp(40px, 1.2vw, 54px);
+    height: clamp(40px, 1.2vw, 54px);
+  }
+
+  .side-icon-group {
+    gap: clamp(38px, 1.4vw, 60px);
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-block: clamp(70px, 2.5vw, 120px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    font-size: clamp(4.8rem, 2.3vw, 6.8rem);
+  }
+
+  .skills-grid {
+    max-width: min(100%, 2800px);
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
+
+  .projects-grid {
+    max-width: min(100%, 2800px);
+    grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+  }
+}
+
+/* ====== FINAL LARGE-SCREEN SECTION LAYOUT ====== */
+@media (min-width: 1600px) {
+  .main-content {
+    padding-inline: clamp(96px, 6vw, 180px);
+  }
+
+  .content-wrapper,
+  section {
+    max-width: none;
+    width: 100%;
+  }
+
+  .hero-section,
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-inline: 0;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(360px, 0.75fr);
+    gap: clamp(56px, 5vw, 120px);
+    width: 100%;
+  }
+
+  .about-text {
+    width: 100%;
+  }
+
+  .about-section p {
+    max-width: none;
+  }
+
+  .about-image {
+    justify-self: end;
+  }
+
+  .skills-grid,
+  .projects-grid {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .timeline {
+    width: min(100%, 1280px);
+  }
+
+  .contact-form {
+    width: min(100%, 860px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .main-content {
+    padding-inline: clamp(110px, 5vw, 210px);
+  }
+
+  .hero-section {
+    align-items: center;
+    margin-top: clamp(72px, 4vw, 110px);
+    padding-block: clamp(56px, 3vw, 96px);
+  }
+
+  .hero-content {
+    max-width: 1200px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(5rem, 4.1vw, 7rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(3rem, 2.6vw, 4.5rem);
+  }
+
+  .hero-content p {
+    max-width: 1100px;
+    font-size: clamp(1.28rem, 1vw, 1.65rem);
+  }
+
+  .hero-image img {
+    max-width: clamp(620px, 27vw, 920px);
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-block: clamp(52px, 2.8vw, 88px);
+  }
+
+  .about-section h2,
+  .skills-section h2,
+  .projects-section h2,
+  .education-section h2,
+  .contact-section h2 {
+    margin-bottom: clamp(34px, 2vw, 58px);
+  }
+
+  .about-content {
+    grid-template-columns: minmax(0, 1.35fr) minmax(520px, 0.65fr);
+    align-items: center;
+  }
+
+  .about-section p {
+    font-size: clamp(1.24rem, 1vw, 1.65rem);
+    line-height: 1.75;
+  }
+
+  .about-image img {
+    max-width: clamp(520px, 21vw, 760px);
+  }
+
+  .skills-grid {
+    max-width: min(100%, 2300px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .skill-box {
+    min-height: clamp(170px, 7vw, 230px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .projects-grid {
+    max-width: min(100%, 2300px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-card {
+    min-height: clamp(250px, 11vw, 360px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(26px, 1.4vw, 42px);
+  }
+
+  .project-card p {
+    padding-inline: 0;
+  }
+
+  .project-links {
+    margin-top: auto;
+    padding-bottom: 0;
+  }
+
+  .project-links a {
+    font-size: clamp(1rem, 0.85vw, 1.4rem);
+  }
+
+  .timeline {
+    width: min(100%, 1500px);
+    padding-block: clamp(24px, 1.6vw, 48px);
+  }
+
+  .timeline::before {
+    left: clamp(42px, 2.2vw, 72px);
+    width: clamp(4px, 0.22vw, 7px);
+  }
+
+  .timeline-item {
+    padding-left: clamp(120px, 6vw, 190px);
+    margin-bottom: clamp(44px, 2.4vw, 76px);
+  }
+
+  .timeline-item::before {
+    left: clamp(30px, 1.7vw, 58px);
+    width: clamp(28px, 1.3vw, 42px);
+    height: clamp(28px, 1.3vw, 42px);
+  }
+
+  .timeline-item .date {
+    left: clamp(86px, 4vw, 130px);
+    font-size: clamp(1rem, 0.82vw, 1.32rem);
+    padding: clamp(6px, 0.4vw, 10px) clamp(12px, 0.8vw, 20px);
+  }
+
+  .contact-form {
+    width: min(100%, 1120px);
+    gap: clamp(18px, 1vw, 30px);
+  }
+
+  .contact-form button,
+  .cta-button {
+    font-size: clamp(1.1rem, 0.9vw, 1.45rem);
+  }
+}
+
+@media (min-width: 3000px) {
+  .main-content {
+    padding-inline: clamp(180px, 5.4vw, 300px);
+  }
+
+  .hero-section {
+    grid-template-columns: minmax(0, 1.1fr) minmax(960px, 0.9fr);
+    gap: clamp(120px, 5vw, 240px);
+    margin-top: clamp(110px, 3.8vw, 160px);
+    padding-block: clamp(70px, 2.4vw, 120px);
+  }
+
+  .hero-content {
+    max-width: 1600px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(8rem, 3.8vw, 11rem);
+  }
+
+  .hero-content h2 {
+    font-size: clamp(4.8rem, 2.3vw, 6.7rem);
+  }
+
+  .hero-content p {
+    font-size: clamp(1.8rem, 0.9vw, 2.45rem);
+    max-width: 1500px;
+  }
+
+  .hero-image img {
+    max-width: clamp(980px, 27vw, 1300px);
+  }
+
+  .about-section,
+  .skills-section,
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding-block: clamp(64px, 2vw, 112px);
+  }
+
+  .about-content {
+    grid-template-columns: minmax(0, 1.35fr) minmax(760px, 0.65fr);
+    gap: clamp(130px, 5vw, 260px);
+  }
+
+  .about-section p {
+    font-size: clamp(1.75rem, 0.82vw, 2.25rem);
+  }
+
+  .about-image img {
+    max-width: clamp(760px, 22vw, 1100px);
+  }
+
+  .skills-grid {
+    max-width: min(100%, 3000px);
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  .skill-box {
+    min-height: clamp(230px, 6.5vw, 330px);
+  }
+
+  .projects-grid {
+    max-width: min(100%, 3000px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-card {
+    min-height: clamp(380px, 10vw, 520px);
+  }
+
+  .timeline {
+    width: min(100%, 2100px);
+  }
+
+  .timeline-item {
+    padding-left: clamp(180px, 5vw, 260px);
+  }
+
+  .timeline-item .content h3 {
+    font-size: clamp(2.2rem, 1vw, 3rem);
+  }
+
+  .timeline-item .content p,
+  .contact-section p,
+  .contact-info {
+    font-size: clamp(1.7rem, 0.78vw, 2.25rem);
+  }
+
+  .contact-form {
+    width: min(100%, 1500px);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: clamp(1.65rem, 0.75vw, 2.2rem);
   }
 }
