@@ -298,7 +298,8 @@ section {
 .skills-section h2,
 .projects-section h2,
 .education-section h2,
-.contact-section h2 {
+.contact-section h2,
+.experience-section h2 {
   font-size: clamp(1.8rem, 3vw, 3.6rem);
   margin-bottom: 25px;
   background: linear-gradient(to right, #2962ff, #0039cb);
@@ -584,6 +585,131 @@ section {
 }
 
 /* =========================================
+   EXPERIENCE
+========================================= */
+.experience-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.experience-section h2 {
+  font-size: clamp(1.8rem, 3vw, 3.6rem);
+  margin-bottom: 25px;
+  background: linear-gradient(to right, #2962ff, #0039cb);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.profile-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.profile-highlights div {
+  background: linear-gradient(135deg, #212121, #121212);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-highlights div {
+  padding: 16px;
+}
+
+.profile-highlights span,
+.experience-timeline .date {
+  display: block;
+  color: #8ea4c8;
+  font-size: 0.88rem;
+  margin-bottom: 6px;
+}
+
+.profile-highlights strong {
+  color: #ffffff;
+  font-size: clamp(0.95rem, 1vw, 1.18rem);
+}
+
+.about-highlights {
+  max-width: 780px;
+}
+
+.experience-timeline .content {
+  text-align: left;
+}
+
+.experience-timeline .content p {
+  margin-bottom: 12px;
+}
+
+.experience-timeline .content ul {
+  display: grid;
+  gap: 8px;
+  padding-left: 18px;
+  color: #b0b0b0;
+  line-height: 1.6;
+}
+
+body.light-theme .experience-timeline .content ul {
+  color: #546e7a;
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 3vw, 64px);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.journey-column {
+  min-width: 0;
+}
+
+.journey-column > h3 {
+  color: #ffffff;
+  font-size: clamp(1.35rem, 1.8vw, 2.2rem);
+  margin-bottom: 24px;
+  text-align: left;
+  padding-left: 80px;
+}
+
+.journey-column .timeline {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+}
+
+.journey-column .timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+body.light-theme .journey-column > h3 {
+  color: #0d47a1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px 16px;
+}
+
+.project-tags span {
+  border: 1px solid rgba(41, 98, 255, 0.32);
+  color: #8fb1ff;
+  background: rgba(41, 98, 255, 0.1);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+/* =========================================
    ✅ EDUCATION SECTION
 ========================================= */
 .education-section {
@@ -686,6 +812,14 @@ section {
   font-size: clamp(0.9rem, 1.1vw, 1.3rem);
   line-height: 1.8;
   color: #b0b0b0;
+}
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 24px;
 }
 
 .contact-form {
@@ -865,7 +999,8 @@ body.light-theme .about-section h2,
 body.light-theme .skills-section h2,
 body.light-theme .projects-section h2,
 body.light-theme .education-section h2,
-body.light-theme .contact-section h2 {
+body.light-theme .contact-section h2,
+body.light-theme .experience-section h2 {
   background: linear-gradient(to right, #2962ff, #1565c0);
   background-clip: text;
   -webkit-background-clip: text;
@@ -878,7 +1013,8 @@ body.light-theme .about-section h2::after,
 body.light-theme .skills-section h2::after,
 body.light-theme .projects-section h2::after,
 body.light-theme .education-section h2::after,
-body.light-theme .contact-section h2::after {
+body.light-theme .contact-section h2::after,
+body.light-theme .experience-section h2::after {
   content: '';
   position: absolute;
   bottom: -10px;
@@ -1162,7 +1298,7 @@ body.light-theme .contact-form button:hover {
 
   /* Bottom Nav Adjustments */
   .bottom-navigation .list {
-    width: 45px;
+    width: 42px;
     height: 60px;
   }
 
@@ -1172,8 +1308,9 @@ body.light-theme .contact-form button:hover {
   }
 
   .bottom-navigation .text {
-    font-size: 0.65em;
+    font-size: 0.6em;
     bottom: 4px;
+    white-space: nowrap;
   }
 
   .bottom-navigation .indicator {
@@ -1258,6 +1395,10 @@ body.light-theme .contact-form button:hover {
     min-width: 140px;
   }
 
+  .profile-highlights {
+    grid-template-columns: 1fr;
+  }
+
   /* Skills Grid */
   .skills-grid {
     grid-template-columns: 1fr;
@@ -1323,6 +1464,17 @@ body.light-theme .contact-form button:hover {
     font-size: 1.1rem;
   }
 
+  .journey-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .journey-column > h3 {
+    padding-left: 60px;
+    margin-bottom: 18px;
+    font-size: 1.35rem;
+  }
+
   /* Main Content */
   .main-content {
     padding: 1px 20px 90px !important;
@@ -1375,6 +1527,10 @@ body.light-theme .contact-form button:hover {
 
   .timeline-item .content {
     padding: 12px 15px;
+  }
+
+  .journey-column > h3 {
+    padding-left: 50px;
   }
 }
 
@@ -2832,7 +2988,8 @@ body.light-theme .contact-form button:hover {
   .skills-section,
   .projects-section,
   .education-section,
-  .contact-section {
+  .contact-section,
+  .experience-section {
     padding-inline: 0;
   }
 
@@ -2865,9 +3022,14 @@ body.light-theme .contact-form button:hover {
     width: min(100%, 1280px);
   }
 
+  .journey-grid {
+    max-width: min(100%, 1900px);
+  }
+
   .contact-form {
     width: min(100%, 860px);
   }
+
 }
 
 @media (min-width: 1920px) {
@@ -2906,7 +3068,8 @@ body.light-theme .contact-form button:hover {
   .skills-section,
   .projects-section,
   .education-section,
-  .contact-section {
+  .contact-section,
+  .experience-section {
     padding-block: clamp(52px, 2.8vw, 88px);
   }
 
@@ -2914,7 +3077,8 @@ body.light-theme .contact-form button:hover {
   .skills-section h2,
   .projects-section h2,
   .education-section h2,
-  .contact-section h2 {
+  .contact-section h2,
+  .experience-section h2 {
     margin-bottom: clamp(34px, 2vw, 58px);
   }
 
@@ -2973,6 +3137,15 @@ body.light-theme .contact-form button:hover {
   .timeline {
     width: min(100%, 1500px);
     padding-block: clamp(24px, 1.6vw, 48px);
+  }
+
+  .journey-grid {
+    max-width: min(100%, 2300px);
+  }
+
+  .journey-column > h3 {
+    font-size: clamp(1.8rem, 1.25vw, 2.5rem);
+    padding-left: clamp(120px, 6vw, 190px);
   }
 
   .timeline::before {
@@ -3045,7 +3218,8 @@ body.light-theme .contact-form button:hover {
   .skills-section,
   .projects-section,
   .education-section,
-  .contact-section {
+  .contact-section,
+  .experience-section {
     padding-block: clamp(64px, 2vw, 112px);
   }
 
@@ -3084,6 +3258,15 @@ body.light-theme .contact-form button:hover {
     width: min(100%, 2100px);
   }
 
+  .journey-grid {
+    max-width: min(100%, 3000px);
+  }
+
+  .journey-column > h3 {
+    font-size: clamp(2.4rem, 1.1vw, 3.2rem);
+    padding-left: clamp(180px, 5vw, 260px);
+  }
+
   .timeline-item {
     padding-left: clamp(180px, 5vw, 260px);
   }
@@ -3106,6 +3289,7 @@ body.light-theme .contact-form button:hover {
   .contact-form textarea {
     font-size: clamp(1.65rem, 0.75vw, 2.2rem);
   }
+
 }
 
 /* ====== PROFESSIONAL VISUAL POLISH ====== */
@@ -3251,7 +3435,8 @@ body.light-theme .about-image img {
 
 body.light-theme .skill-box,
 body.light-theme .project-card,
-body.light-theme .timeline-item .content {
+body.light-theme .timeline-item .content,
+body.light-theme .profile-highlights div {
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(231, 242, 255, 0.88)),
     var(--surface-light-solid);
@@ -3329,6 +3514,15 @@ body.light-theme .contact-form textarea {
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12), 0 14px 30px rgba(37, 99, 235, 0.18);
 }
 
+body.light-theme .profile-highlights strong {
+  color: #0f2a4f;
+}
+
+body.light-theme .project-tags span {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8;
+}
+
 .side-icon {
   background: rgba(15, 23, 42, 0.72);
   border-color: rgba(148, 163, 184, 0.24);
@@ -3349,7 +3543,8 @@ body.light-theme .side-icon {
   .skills-section,
   .projects-section,
   .education-section,
-  .contact-section {
+  .contact-section,
+  .experience-section {
     border-bottom: 1px solid rgba(148, 163, 184, 0.08);
   }
 }

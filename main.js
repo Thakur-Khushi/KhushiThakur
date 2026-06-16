@@ -29,11 +29,14 @@ function updateIndicator(activeItem) {
     icon.style.opacity = '0';
   }
 
-  const offset = activeItem.offsetLeft;
+  const offset =
+    activeItem.offsetLeft + (activeItem.offsetWidth - indicator.offsetWidth) / 2;
   indicator.style.left = `${offset}px`;
 
-  const activeIconName = icon.querySelector('ion-icon').getAttribute('name');
-  indicatorIcon.setAttribute('name', activeIconName);
+  const iconElement = icon?.querySelector('ion-icon');
+  if (iconElement) {
+    indicatorIcon.setAttribute('name', iconElement.getAttribute('name'));
+  }
 }
 
 // ===== SCROLL-BASED INDICATOR =====
@@ -101,9 +104,11 @@ function loadThemePreference() {
 // ===== TYPING ANIMATION =====
 const professions = [
   'Web Developer',
-  'Frontend Developer',
-  'UI/UX Designer',
+  'Django Developer',
+  'Computer Engineering Student',
+  'Python Developer',
   'Problem Solver',
+  'Frontend Developer',
 ];
 
 function typeWriter() {
@@ -230,66 +235,6 @@ function resetIconStyles(icon) {
   }
 }
 
-// ===== FORM HANDLING =====
-function initContactForm() {
-  const contactForm = document.querySelector('.contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Get form data
-      const formData = new FormData(this);
-      const name = formData.get('name') || 'User';
-
-      // Show success message
-      showNotification(
-        `Thank you ${name}! Your message has been sent successfully.`
-      );
-
-      // Reset form
-      this.reset();
-    });
-  }
-}
-
-function showNotification(message) {
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = 'form-notification';
-  notification.textContent = message;
-  notification.style.cssText = `
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: linear-gradient(135deg, #00e6b8, #6e8efb);
-    color: white;
-    padding: 15px 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-    z-index: 10000;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    font-weight: 600;
-  `;
-
-  document.body.appendChild(notification);
-
-  // Animate in
-  setTimeout(() => {
-    notification.style.transform = 'translateX(0)';
-  }, 100);
-
-  // Remove after 3 seconds
-  setTimeout(() => {
-    notification.style.transform = 'translateX(100%)';
-    setTimeout(() => {
-      if (notification.parentNode) {
-        notification.parentNode.removeChild(notification);
-      }
-    }, 300);
-  }, 3000);
-}
-
 // ===== SCROLL ANIMATIONS =====
 function initScrollAnimations() {
   // Add scroll event for header shadow
@@ -369,7 +314,6 @@ function init() {
 
   // Initialize components
   initSmoothScrolling();
-  initContactForm();
   initScrollAnimations();
   initLazyLoading();
 
